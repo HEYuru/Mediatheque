@@ -1,7 +1,7 @@
 <template>
-  <el-menu theme="dark" class="el-menu-demo" mode="horizontal">
+  <el-menu class="el-menu-demo" mode="horizontal">
     <el-menu-item index="1">
-      <router-link :to="{ path: '/index' }">惠学图书管理系统</router-link>
+      <router-link :to="{ path: '/index' }">Mediatheque</router-link>
     </el-menu-item>
     <template v-if="user">
       <el-submenu index="2">
@@ -63,7 +63,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

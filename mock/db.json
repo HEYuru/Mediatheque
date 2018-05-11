@@ -1,0 +1,68 @@
+{
+  "login": [
+    {
+      "success": 1,
+      "message": "",
+      "data": {
+        "username": "xigua",
+        "isAdmin": 0
+      }
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "books": {
+    "success": 1,
+    "message": "",
+    "data": {
+      "data": [
+        {
+          "bookId": 0,
+          "bookTitle": "React",
+          "bookIsbn": "9787121259364",
+          "bookPrice": "65",
+          "borrowTimes": "1",
+          "returnTime": null,
+          "bookSummary": "2014 年横空出世的由Facebook 推出的开源框架React.js，基于Virtual DOM 重新定义了用户界面的开发方式，彻底革新了大家对前端框架的认识，将PHP 风格的开发方式迁移到客户端应用开发。其优势在于可以与各种类库、框架搭配使用。《React：引领未来的用户界面开发框架》是这一领域的首作，由多位一线专家精心撰写，采用一个全程实例全面介绍和剖析了ReactReact.js 的方方面面，适合广大前端开发者、设计人员，及所有对未来技术趋势感兴趣者阅读。",
+          "bookState": "0",
+          "bookImg": "https://img1.doubanio.com/mpic/s28061237.jpg",
+          "createTime": "2018-02-13"
+        },
+        {
+          "bookId": 1,
+          "bookTitle": "React",
+          "bookIsbn": "9787121259364",
+          "bookPrice": "65",
+          "borrowTimes": "1",
+          "returnTime": null,
+          "bookSummary": "2014 年横空出世的由Facebook 推出的开源框架React.js，基于Virtual DOM 重新定义了用户界面的开发方式，彻底革新了大家对前端框架的认识，将PHP 风格的开发方式迁移到客户端应用开发。其优势在于可以与各种类库、框架搭配使用。《React：引领未来的用户界面开发框架》是这一领域的首作，由多位一线专家精心撰写，采用一个全程实例全面介绍和剖析了ReactReact.js 的方方面面，适合广大前端开发者、设计人员，及所有对未来技术趋势感兴趣者阅读。",
+          "bookState": "0",
+          "bookImg": "https://img1.doubanio.com/mpic/s28061237.jpg",
+          "createTime": "2018-02-13"
+        },
+        {
+          "bookId": 2,
+          "bookTitle": "React",
+          "bookIsbn": "9787121259364",
+          "bookPrice": "65",
+          "borrowTimes": "1",
+          "returnTime": null,
+          "bookSummary": "2014 年横空出世的由Facebook 推出的开源框架React.js，基于Virtual DOM 重新定义了用户界面的开发方式，彻底革新了大家对前端框架的认识，将PHP 风格的开发方式迁移到客户端应用开发。其优势在于可以与各种类库、框架搭配使用。《React：引领未来的用户界面开发框架》是这一领域的首作，由多位一线专家精心撰写，采用一个全程实例全面介绍和剖析了ReactReact.js 的方方面面，适合广大前端开发者、设计人员，及所有对未来技术趋势感兴趣者阅读。",
+          "bookState": "0",
+          "bookImg": "https://img1.doubanio.com/mpic/s28061237.jpg",
+          "createTime": "2018-02-13"
+        }
+      ],
+      "count": 10,
+      "currentPage": 1
+    }
+  }
+}
