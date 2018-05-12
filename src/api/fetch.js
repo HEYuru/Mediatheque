@@ -29,13 +29,14 @@ const axios = Axios.create({
 // });
 // 响应拦截
 axios.interceptors.response.use((response) => {
-  console.log(response)
+  console.log('imcczy', response)
   // 请求成功
   if (response.status === 200) {
     const {
       success
     } = response.data
     // 获取数据成功
+    console.log('imcczy', success)
     if (success === 1) {
       return response.data.data
     } else if (success === 0) {

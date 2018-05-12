@@ -1,5 +1,5 @@
 {
-  "login": [
+  "login":
     {
       "success": 1,
       "message": "",
@@ -7,18 +7,7 @@
         "username": "xigua",
         "isAdmin": 0
       }
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
+    },
   "books": {
     "success": 1,
     "message": "",

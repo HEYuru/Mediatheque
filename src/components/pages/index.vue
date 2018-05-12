@@ -43,7 +43,7 @@
 import {
   mapGetters
 } from 'vuex'
-import router from '@/router/index'
+import router from '@/router/router'
 
 import Goods from '@/components/Goods.vue'
 import Cart from '@/components/Cart.vue'
@@ -83,6 +83,7 @@ export default {
   },
   methods: {
     addCart (obj) {
+      console.log('imcczy', obj.bookTitle)
       //   const carts = this.carts;
       //   // 要添加的这个商品是否已经存在购物车中了
       //   const isChong = carts.some(book => {

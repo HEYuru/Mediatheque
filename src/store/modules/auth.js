@@ -10,7 +10,7 @@ import {
 import {
   login
 } from '@/api/auth'
-import router from '@/router/index'
+import router from '@/router/router'
 
 const mapUrl = (function () {
   const URL_MAP = [
