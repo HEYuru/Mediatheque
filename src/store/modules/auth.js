@@ -44,7 +44,7 @@ const actions = {
       .then(res => {
         // 获取到redirect
         commit('LOGIN', res)
-        commit('SETDATA', res)
+        commit('SETUSER', res)
         localStorage.setItem('user', JSON.stringify(res))
         // 根据权限跳转不同的首页
         console.log('imcczy', res.isAdmin, mapUrl(res.isAdmin))

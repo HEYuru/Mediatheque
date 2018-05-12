@@ -6,8 +6,10 @@ import store from '@/store'
 // -----------pages-------------
 
 import BasicLayout from '@/components/layout/BasicLayout'
+import SideLayout from '@/components/layout/SideLayout'
 import Index from '@/components/pages/index.vue'
 import Login from '@/components/pages/login.vue'
+import Borrow from '@/components/pages/AdminBorrow.vue'
 
 Vue.use(Router)
 
@@ -30,6 +32,23 @@ const router = new Router({
       path: '/login',
       name: '登录',
       component: Login
+    },
+    {
+      // 后台根视图
+      path: '/admin',
+      name: '后台首页',
+      component: SideLayout,
+      meta: { adminAuth: true },
+      redirect: '/admin/index',
+      children: [
+        {
+          // 借书页
+          path: 'index',
+          name: '借阅',
+          component: Borrow,
+          meta: { adminAuth: true }
+        }
+      ]
     }
   ]
 })
@@ -51,19 +70,16 @@ router.beforeEach((to, from, next) => {
   } else if (to.matched.some(record => record.meta.adminAuth)) {
     console.log(to.matched)
     // 从 store 中读取
-    const user = store.state.global.data
-    console.log('user', user)
+    const user = store.state.global.user
+    // const user = localStorage.getItem('user')
+    console.log('imcczy-router-guide-user', user)
     if (!user) {
       next({
         path: '/login'
       })
       return
     }
-    const {
-      role
-    } = user
-    console.log('role', role)
-    if (role !== 1) {
+    if (user.isAdmin !== 1) {
       next({
         path: '/no_permission'
       })
