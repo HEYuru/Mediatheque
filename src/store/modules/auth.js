@@ -44,7 +44,6 @@ const actions = {
       .then(res => {
         // 获取到redirect
         commit('LOGIN', res)
-        commit('SETUSER', res)
         localStorage.setItem('user', JSON.stringify(res))
         // 根据权限跳转不同的首页
         console.log('imcczy', res.isAdmin, mapUrl(res.isAdmin))
@@ -58,12 +57,11 @@ const actions = {
   [LOGOUT] ({
     commit
   }) {
-    localStorage.removeItem('user')
+    localStorage.clear()
     router.push({
       path: USER_LOGIN
     })
     commit('LOGOUT')
-    commit('CLEAR')
   },
   [FETCH_USER] ({
     commit

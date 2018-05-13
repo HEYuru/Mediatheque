@@ -3,7 +3,7 @@
     <el-row :gutter="20">
       <el-col :span="18">
         <el-input placeholder="请输入书籍名或ISBN码查询" v-model="query">
-          <el-select v-model="select" slot="prepend" placeholder="请选择">
+          <el-select v-model="select" slot="prepend" placeholder="筛选种类">
             <el-option label="ALL" value="null"></el-option>
             <el-option label="图书" value="1"></el-option>
             <el-option label="电影" value="2"></el-option>
@@ -12,15 +12,15 @@
           <el-button  v-on:click="search(query)" slot="append" icon="el-icon-search"></el-button>
         </el-input>
         <el-row :gutter="20">
-          <el-col :span="12" v-for="book in books" :key="book.bookId">
-            <Goods v-if="isselect(select,book)" :item="book" :choose="addCart" />
+          <el-col :span="12" v-for="product in products" :key="product.id">
+            <Product v-if="isselect(select,product)" :item="product" />
           </el-col>
         </el-row>
       </el-col>
       <el-col :span="6">
         <el-row>
-          <el-col :span="24" v-for="item in carts" :key="item.bookId">
-            <Cart :item="item" :remove="removeFromCart" />
+          <el-col :span="24" v-for="item in cartProducts" :key="item.id">
+            <Cart :item="item" />
           </el-col>
         </el-row>
         <el-button style="width: 100%;" type="success" @click="order">￥{{sumPrice}} - 结算</el-button>
@@ -39,18 +39,18 @@ import {
 } from 'vuex'
 import router from '@/router/router'
 
-import Goods from '@/components/Goods.vue'
+import Product from '@/components/Product.vue'
 import Cart from '@/components/Cart.vue'
 
 import {
-  FETCH_BOOKS,
-  SEARCH_BOOKS
+  FETCH_PRODUCTS,
+  SEARCH_PRODUCTS
 } from '@/constants/values'
 
 export default {
   name: 'index',
   components: {
-    Goods,
+    Product,
     Cart
   },
   data () {
@@ -63,16 +63,14 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch(FETCH_BOOKS)
+    this.$store.dispatch(FETCH_PRODUCTS)
   },
   computed: {
     ...mapGetters([
-      'books'
+      'products',
+      'cartProducts'
     ]),
-    // 购物车列表，从 vuex 中获取
-    carts () {
-      return this.$store.state.carts
-    },
+
     sumPrice () {
       return this.$store.getters.count
     }
@@ -87,54 +85,11 @@ export default {
     },
     search (obj) {
       if (!obj) {
-        this.$store.dispatch(FETCH_BOOKS)
+        this.$store.dispatch(FETCH_PRODUCTS)
         return
       }
-      this.$store.dispatch(SEARCH_BOOKS, this.query)
+      this.$store.dispatch(SEARCH_PRODUCTS, this.query)
     },
-    addCart (obj) {
-      console.log('imcczy', obj.bookTitle)
-      //   const carts = this.carts;
-      //   // 要添加的这个商品是否已经存在购物车中了
-      //   const isChong = carts.some(book => {
-      //     return book.bookId === obj.bookId;
-      //   });
-
-      //   if (isChong === false) {
-      //     obj.newPrice = computedPriceByTimes(obj.bookPrice, obj.borrowTimes);
-      //     // 将商品加入购物车
-      //     this.$store.commit('ADD_TO_CART', obj);
-      //     // // 同时还要写入数据库中
-      //     // // 先获取到userid作为查询依据
-      //     obj.cartsession = localStorage.getItem('userId') || 123;
-      //     localStorage.setItem('cartSession', obj.cartsession);
-      //     // 加入购物车成功不做任何处理
-      //     addToCart(obj).catch(err => {
-      //       this.$message({
-      //         message: err,
-      //       });
-      //       // 如果写入数据库失败，还要从购物车移除，因为是已经加入到购物车中了
-      //       carts.splice(carts.indexOf(obj), 1);
-      //     });
-      //   } else {
-      //     this.$message({
-      //       message: '该商品已经在购物车',
-      //     });
-      //   }
-    },
-    // removeFromCart (obj) {
-    //   const carts = this.carts;
-    //   obj.cartSession = localStorage.getItem('cartSession');
-    //   removeFromCart(obj)
-    //     .then(res => {
-    //       carts.splice(carts.indexOf(obj), 1);
-    //     })
-    //     .catch(err => {
-    //       this.$message({
-    //         message: err,
-    //       });
-    //     });
-    // },
     order () {
       // 首先判断用户是否登录
       if (!localStorage.getItem('user')) {

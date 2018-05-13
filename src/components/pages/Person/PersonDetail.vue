@@ -24,10 +24,10 @@
         <p>没有借阅</p>
       </template>
       <template v-else>
-        <el-card v-for="book in recordRes" :key="book.recordId">
-          <h3>{{book.bookTitle}}</h3>
+        <el-card v-for="product in recordRes" :key="product.recordId">
+          <h3>{{product.title}}</h3>
           <p>借阅时间：
-            <span>{{book.borrowTime}}</span>
+            <span>{{product.borrowTime}}</span>
           </p>
         </el-card>
       </template>

@@ -6,10 +6,10 @@ export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const FETCH_USER = 'FETCH_USER'
 
-export const FETCH_BOOKS = 'FETCH_BOOKS'
-export const SEARCH_BOOKS = 'SEARCH_BOOKS'
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS'
+export const SEARCH_PRODUCTS = 'SEARCH_PRODUCTS'
 export const SEARCH_DOUBAN = 'SEARCH_DOUBAN'
-export const ADD_BOOK = 'ADD_BOOK'
+export const ADD_PRODUCT = 'ADD_PRODUCT'
 
 export const FETCH_MEMBER = 'FETCH_MEMBER'
 export const SEARCH_MEMBER = 'SEARCH_MEMBER'

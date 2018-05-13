@@ -8,18 +8,18 @@ import fetch from '@/api/fetch'
  * @param {number} page - 页码
  * @param {number} size - 每页数量
  */
-export function fetchBooks (params, page = 1, size = 20) {
+export function fetchProducts (params, page = 1, size = 20) {
   console.log('imcczy-feychbook', params)
-  return fetch('/api/books', {
+  return fetch('/api/product', {
     params: {
       page,
       size
     }
   })
 }
-export function searchBooks (params, page = 1, size = 20) {
+export function searchProducts (params, page = 1, size = 20) {
   console.log('imcczy-feychbook', params)
-  return fetch('/api/searchbooks', {
+  return fetch('/api/searchproduct', {
     params: {
       ...params,
       page,
@@ -49,19 +49,19 @@ export function searchByDouban (param) {
 /**
  * 添加书籍到数据库
  */
-export function createBook (params) {
-  return fetch.post('/api/books', params)
+export function createProduct (params) {
+  return fetch.post('/api/creatproduct', params)
 }
 /**
  * 根据 id 查询书籍
  * @param {number} id - 书籍 id
  */
-export function searchBookById (id) {
-  return fetch(`/api/books/${id}`)
+export function searchProductById (id) {
+  return fetch(`/api/searchproductid/${id}`)
 }
 
 // 更新书籍状态
-export function updateBookState (param, state) {
+export function updateProductState (param, state) {
   return new Promise((resolve, reject) => {
     fetch(
       `${prefix}/getBooks.service.php?action=updateState&bookId=${param}&state=${state}`

@@ -1,17 +1,17 @@
 <template>
   <div class="container">
     <el-card>
-      <img style="float: left;" :src="book.bookImg" :alt="book.bookTitle">
+      <img style="float: left;" :src="book.coverImg" :alt="book.title">
       <div style="margin-left: 160px;">
         <p>ISBN：
-          <span>{{book.bookIsbn}}</span>
+          <span>{{book.uuid}}</span>
         </p>
         <p>被借阅次数：
           <span>{{book.borrowTimes}}</span>
         </p>
         <p>原价：
-          <del>{{book.bookPrice}}</del>现价：
-          <span>{{book.bookPrice}}</span>
+          <del>{{book.price}}</del>现价：
+          <span>{{book.price}}</span>
         </p>
         <template v-if="book.returnTime !== 0">
           <el-button type="success" v-on:click="addCart(book)">加入购物车</el-button>
@@ -38,7 +38,7 @@
 
 <script>
 /* eslint-disable */
-import { searchBookById } from "@/api/books";
+import { searchProductById } from "@/api/product";
 import { searchMemberById } from "@/api/admin/member";
 import { fetchComments, addComment, searchCommentById } from "@/api/comment";
 
@@ -52,7 +52,7 @@ export default {
     };
   },
   created() {
-    searchBookById(this.$route.params.id)
+    searchProductById(this.$route.params.id)
       .then(res => {
         // console.log(res.data)
         // 获取评论列表

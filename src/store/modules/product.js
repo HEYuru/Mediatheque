@@ -1,16 +1,16 @@
 
 import {
-  FETCH_BOOKS,
+  FETCH_PRODUCTS,
   SEARCH_DOUBAN,
-  ADD_BOOK,
-  SEARCH_BOOKS
+  ADD_PRODUCT,
+  SEARCH_PRODUCTS
 } from '@/constants/values'
 import {
-  fetchBooks,
-  searchBooks,
+  fetchProducts,
+  searchProducts,
   searchByDouban,
-  createBook
-} from '@/api/books'
+  createProduct
+} from '@/api/product'
 
 // state
 const state = {
@@ -21,9 +21,7 @@ const state = {
 }
 // getters
 const getters = {
-  books: state => {
-    return state.data
-  },
+  products: state => state.data,
   douban: state => state.douban,
   bookRes: state => state.bookRes
 }
@@ -32,22 +30,22 @@ const actions = {
   /**
    * 获取图书列表
    */
-  [FETCH_BOOKS] ({
+  [FETCH_PRODUCTS] ({
     commit
   }, params) {
-    fetchBooks(params)
+    fetchProducts(params)
       .then((res) => {
-        commit('save_books', res.data)
-        console.log('imcczy-book', state.data)
+        commit('save_commodity', res.data)
+        console.log('imcczy-commodity', state.data)
       })
       .catch(() => {
-        return fetchBooks(null)
+        return fetchProducts(null)
       })
   },
   /**
    * 获取图书列表
    */
-  [SEARCH_BOOKS] ({
+  [SEARCH_PRODUCTS] ({
     commit
   }, params) {
     // 先以 ISBN 码作为条件查询
@@ -57,10 +55,10 @@ const actions = {
         key: params
       }
     }
-    searchBooks(pathParams)
+    searchProducts(pathParams)
       .then((res) => {
-        commit('save_books', res.data)
-        console.log('imcczy-bookres', state.data)
+        commit('save_commodity', res.data)
+        console.log('imcczy-commodityres', state.data)
       })
       .catch((err) => {
         console.log(err)
@@ -69,7 +67,7 @@ const actions = {
             title: params
           }
         }
-        return fetchBooks(pathParams)
+        return fetchProducts(pathParams)
       })
       .then((res) => {
         console.log(res)
@@ -95,13 +93,13 @@ const actions = {
         alert(err)
       })
   },
-  [ADD_BOOK] ({
+  [ADD_PRODUCT] ({
     commit
   }, {
     params,
     cb
   }) {
-    createBook(params)
+    createProduct(params)
       .then((res) => {
         if (cb) {
           cb()
@@ -114,12 +112,18 @@ const actions = {
 }
 // mutations
 const mutations = {
-  save_books (state, books) {
-    state.data = books
+  save_commodity (state, commoditys) {
+    state.data = commoditys
   },
   save_res (state, payload) {
     console.log('imcczy-save-res', payload)
     state.bookRes = payload
+  },
+  decrementProductInventory (state, product) {
+    product.inventory--
+  },
+  incrementProductInventory (state, product) {
+    product.inventory++
   }
 }
 

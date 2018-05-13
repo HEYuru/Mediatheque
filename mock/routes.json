@@ -1,5 +1,5 @@
 {
   "/api/*": "/$1",
-  "/api/books\\?page=:page\\&size=:size": "/books",
-  "/api/searchbooks\\?key=:params\\&page=:page\\&size=:size": "/searchbooks"
+  "/api/product\\?page=:page\\&size=:size": "/product",
+  "/api/searchproduct\\?key=:params\\&page=:page\\&size=:size": "/searchproducts"
 }

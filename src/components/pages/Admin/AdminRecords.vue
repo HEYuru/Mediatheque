@@ -15,7 +15,7 @@
     </el-row>
     <el-table :data="records" stripe style="margin-top: 20px; width: 100%">
       <el-table-column type="expand">
-        <template scope="props">
+        <template slot-scope="props">
           <el-form label-position="left" inline class="demo-table-expand">
             <el-form-item label="会员名">
               <span>{{ props.row.memberName }}</span>
@@ -36,13 +36,13 @@
               <span>{{ props.row.memberCreateTime }}</span>
             </el-form-item>
             <el-form-item label="书籍名">
-              <span>{{ props.row.bookTitle }}</span>
+              <span>{{ props.row.title }}</span>
             </el-form-item>
             <el-form-item label="ISBN 码">
-              <span>{{ props.row.bookIsbn }}</span>
+              <span>{{ props.row.uuid }}</span>
             </el-form-item>
             <el-form-item label="封面">
-              <img :src="props.row.bookImg" :alt="props.row.bookTitle">
+              <img :src="props.row.coverImg" :alt="props.row.title">
             </el-form-item>
             <el-form-item label="归还时间">
               <span>{{ props.row.returnTime }}</span>
@@ -54,12 +54,12 @@
       </el-table-column>
       <el-table-column prop="memberName" label="会员名称">
       </el-table-column>
-      <el-table-column prop="bookTitle" label="书籍名称">
+      <el-table-column prop="title" label="书籍名称">
       </el-table-column>
       <el-table-column prop="borrowTime" label="借阅时间">
       </el-table-column>
       <el-table-column prop="returnTime" label="状态" width="100" :filters="[{ text: '已还', value: '已还' }, { text: '未还', value: '未还' }, { text: '超期', value: '超期'}]" :filter-method="filterReturn">
-        <template scope="scope">
+        <template slot-scope="scope">
           <el-tag :type="scope.row.tag === '超期' ? 'danger' : 'success'" close-transition>{{scope.row.tag}}</el-tag>
         </template>
       </el-table-column>

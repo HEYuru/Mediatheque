@@ -4,13 +4,13 @@
       <el-table-column prop="orderId" label="订单编号">
       </el-table-column>
       <el-table-column prop="bookIsbn" label="商品信息">
-        <template scope="scope">
-          <div v-for="book in scope.row.booklist" :key="book.bookId">
+        <template slot-scope="scope">
+          <div v-for="book in scope.row.booklist" :key="book.id">
             <p>
-              <router-link :to="{ path: '/goods/' + book.bookId}">{{book.bookTitle}}</router-link>
+              <router-link :to="{ path: '/product/' + book.id}">{{book.title}}</router-link>
             </p>
             <p>￥
-              <span>{{book.bookPrice}}</span>
+              <span>{{book.price}}</span>
             </p>
           </div>
         </template>
@@ -20,7 +20,7 @@
       <el-table-column prop="createTime" label="下单时间">
       </el-table-column>
       <el-table-column label="操作">
-        <template scope="scope">
+        <template slot-scope="scope">
           <el-button type="danger" @click="cancelOrder(scope.row)">取消订单</el-button>
         </template>
       </el-table-column>
@@ -30,7 +30,7 @@
 
 <script>
 /* eslint-disable */
-import { searchBookById, updateBookState } from "@/api/books";
+import { searchProductById, updateProductState } from "@/api/product";
 import { cancelOrder, fetchOrdersByMemberId } from "@/api/admin/order";
 import { orderState } from "@/api/utils";
 
@@ -51,7 +51,7 @@ export default {
           // 获取到商品id数组，从接口查询商品详情
           let resultlist = [];
           booklist.forEach(id => {
-            searchBookById(id)
+            searchProductById(id)
               .then(res => {
                 // 使用过滤器来处理价格显示
                 resultlist.push(res.data);
@@ -80,7 +80,7 @@ export default {
         .then(res => {
           // 更新订单状态成功后，更新书籍状态为正常
           obj.booklist.forEach(book => {
-            updateBookState(book.bookId, 0)
+            updateProductState(book.bookId, 0)
               .then(res => {
                 obj.orderState = 2;
               })

@@ -9,15 +9,15 @@ import BasicLayout from '@/components/layout/BasicLayout'
 import SideLayout from '@/components/layout/SideLayout'
 import Index from '@/components/pages/Person/PersonIndex.vue'
 import Login from '@/components/pages/login.vue'
-
+import Order from '@/components/Order.vue'
 
 import ProductDetail from '@/components/pages/ProductDetail.vue'
 
 // ----person-----
 import Person from '@/components/pages/Person/Person.vue'
-import PersonDetail from '@/components/pages/Person/Detail.vue'
-import PersonOrder from '@/components/pages/Person/Orders.vue'
-import PersonRecord from '@/components/pages/Person/Records.vue'
+import PersonDetail from '@/components/pages/Person/PersonDetail.vue'
+import PersonOrder from '@/components/pages/Person/PersonOrders.vue'
+import PersonRecord from '@/components/pages/Person/PersonRecords.vue'
 
 // ---- Admin-----
 import AdminReturn from '@/components/pages/Admin/AdminReturn.vue'
@@ -40,6 +40,11 @@ const router = new Router({
           path: 'index',
           name: '首页',
           component: Index
+        },
+        {
+          path: 'order',
+          name: '订单',
+          component: Order
         },
         {
           // 商品详情页
@@ -155,7 +160,7 @@ router.beforeEach((to, from, next) => {
   } else if (to.matched.some(record => record.meta.adminAuth)) {
     console.log(to.matched)
     // 从 store 中读取
-    const user = store.state.global.user
+    const user = store.state.auth.data
     // const user = localStorage.getItem('user')
     console.log('imcczy-router-guide-user', user)
     if (!user) {

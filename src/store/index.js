@@ -1,23 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import global from '@/store/modules/global'
-import books from '@/store/modules/books'
+import product from '@/store/modules/product'
 import auth from '@/store/modules/auth'
-
-import {
-  INIT,
-  FETCH_USER
-} from '@/constants/values'
+import cart from '@/store/modules/cart'
 
 // import member from '@/store/modules/member';
 // import record from '@/store/modules/record';
 // import order from '@/store/modules/order';
-
-// import {
-//  INIT,
-//  FETCH_USER
-// } from '@/constants/values'
 
 Vue.use(Vuex)
 
@@ -25,14 +15,13 @@ const debug = process.env.NODE_ENV !== 'production'
 
 const store = new Vuex.Store({
   modules: {
-    books,
-    auth,
-    global
+    cart,
+    product,
+    auth
   },
   strict: debug
 })
 
-store.dispatch(INIT)
-store.dispatch(FETCH_USER)
-
+store.dispatch('FETCH_USER')
+store.dispatch('fetch_cart')
 export default store

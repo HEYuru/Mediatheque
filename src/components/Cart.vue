@@ -1,20 +1,24 @@
 <template>
   <div>
     <el-card :body-style="{ padding: '10px' }">
-      <p>{{item.bookTitle}}</p>
-      <p>￥{{item.newPrice}}
-        <span @click="remove(item)">移除</span>
+      <p>{{item.title}}</p>
+      <p>￥{{item.price}}
+        <i @click="removeFromCart(item)" class="el-icon-delete"></i>
       </p>
     </el-card>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'Cart',
   props: [
-    'item',
-    'remove'
-  ]
+    'item'
+  ],
+  methods: mapActions([
+    'removeFromCart'
+  ])
 }
 </script>

@@ -10,21 +10,21 @@
       <el-table-column prop="orderId" label="订单编号">
       </el-table-column>
       <el-table-column label="商品信息">
-        <template scope="scope">
-          <div v-for="book in scope.row.booklist" :key="book.bookId">
-            <router-link :to="{ path: '/goods/' + book.bookId}">{{book.bookTitle}}
+        <template slot-scope="scope">
+          <div v-for="book in scope.row.booklist" :key="book.id">
+            <router-link :to="{ path: '/product/' + book.id}">{{book.title}}
             </router-link>
             <p>书籍编号：
-              <span>{{book.bookId}}</span>
+              <span>{{book.id}}</span>
             </p>
             <p>书籍价格：
-              <span>{{book.bookPrice}}</span>
+              <span>{{book.price}}</span>
             </p>
           </div>
         </template>
       </el-table-column>
       <el-table-column prop="memberName" label="收货人">
-        <template scope="scope">
+        <template slot-scope="scope">
           <p>{{scope.row.member.memberName}}</p>
           <p>{{scope.row.member.memberTel}}</p>
           <p>{{scope.row.member.memberAddress}}</p>
@@ -33,7 +33,7 @@
       <el-table-column prop="orderState" label="订单状态">
       </el-table-column>
       <el-table-column label="操作">
-        <template scope="scope">
+        <template slot-scope="scope">
           <el-button @click="confirmOrder(scope.row)" type="success">确认订单</el-button>
           <el-button @click="cancelOrder(scope.row)" type="danger">取消订单</el-button>
         </template>

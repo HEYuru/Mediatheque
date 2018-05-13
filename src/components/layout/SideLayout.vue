@@ -47,10 +47,6 @@
 </template>
 
 <script>
-
-import {
-  mapGetters
-} from 'vuex'
 import AdminHeader from '@/components/AdminHeader'
 import router from '@/router/router'
 
@@ -66,9 +62,6 @@ export default {
       user: null
     }
   },
-  computed: mapGetters([
-    'admin'
-  ]),
   methods: {
     logout () {
       router.push({

@@ -15,7 +15,7 @@
           v-model="bookQuery">
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
-        <BookList :books="bookRes" :choose="chooseBook" />
+        <ProductList :books="bookRes" :choose="chooseBook" />
       </el-col>
     </el-row>
     <el-dialog title="请确认以下信息" v-model="dialogVisible" size="small">
@@ -37,10 +37,10 @@ import {
 } from 'vuex'
 
 import MemberList from '@/components/MemberList.vue'
-import BookList from '@/components/BookList.vue'
+import ProductList from '@/components/AdminProductList.vue'
 import {
   SEARCH_MEMBER,
-  SEARCH_BOOKS,
+  SEARCH_PRODUCTS,
   CREATE_RECORD
 } from '@/constants/values'
 
@@ -49,7 +49,7 @@ export default {
   name: 'Index',
   components: {
     MemberList,
-    BookList
+    ProductList
   },
   data () {
     return {
@@ -98,7 +98,7 @@ export default {
         })
         return false
       }
-      this.$store.dispatch(SEARCH_BOOKS, {
+      this.$store.dispatch(SEARCH_PRODUCTS, {
         params: {
           title: this.bookQuery
         }

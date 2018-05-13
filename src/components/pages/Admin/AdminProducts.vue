@@ -14,30 +14,30 @@
         <el-button style="width: 100%;" type="primary" @click="dialogVisible = true">添加新书籍</el-button>
       </el-col>
     </el-row>
-    <el-table :data="books" stripe style="margin-top: 20px; width: 100%">
+    <el-table :data="products" stripe style="margin-top: 20px; width: 100%">
       <el-table-column type="expand">
-        <template scope="props">
+        <template slot-scope="props">
           <el-form label-position="left" inline class="demo-table-expand">
             <el-form-item label="id">
-              <span>{{ props.row.bookId }}</span>
+              <span>{{ props.row.id }}</span>
             </el-form-item>
             <el-form-item label="书籍名">
-              <span>{{ props.row.bookTitle }}</span>
+              <span>{{ props.row.title }}</span>
             </el-form-item>
             <el-form-item label="ISBN 码">
-              <span>{{ props.row.bookIsbn }}</span>
+              <span>{{ props.row.uuid }}</span>
             </el-form-item>
             <el-form-item label="借阅次数">
               <span>{{ props.row.borrowTimes }}</span>
             </el-form-item>
             <el-form-item label="当前状态">
-              <span>{{ props.row.bookState }}</span>
+              <span>{{ props.row.state }}</span>
             </el-form-item>
             <el-form-item label="书籍价格">
-              <span>￥{{ props.row.bookPrice }}</span>
+              <span>￥{{ props.row.price }}</span>
             </el-form-item>
             <el-form-item label="封面">
-              <img :src="props.row.bookImg" :alt="props.row.bookTitle">
+              <img class="product_img" :src="props.row.coverImg" :alt="props.row.title">
             </el-form-item>
             <el-form-item label="上架时间">
               <span>{{ props.row.createTime }}</span>
@@ -45,15 +45,15 @@
           </el-form>
         </template>
       </el-table-column>
-      <el-table-column prop="bookTitle" label="书籍名">
+      <el-table-column prop="title" label="书籍名">
       </el-table-column>
-      <el-table-column prop="bookIsbn" label="ISBN码">
+      <el-table-column prop="uuid" label="ISBN码">
       </el-table-column>
-      <el-table-column prop="bookState" label="书籍状态">
+      <el-table-column prop="state" label="书籍状态">
       </el-table-column>
       <el-table-column label="操作">
-        <template scope="scope">
-          <el-button size="small" type="text" :disabled="scope.row.bookState !== '正常'" @click="deleteBook(scope.row.bookId, scope.$index)">删除</el-button>
+        <template slot-scope="scope">
+          <el-button size="small" type="text" :disabled="scope.row.state !== '正常'" @click="deleteBook(scope.row.id, scope.$index)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -74,9 +74,9 @@ import {
   mapGetters
 } from 'vuex'
 import {
-  FETCH_BOOKS,
+  FETCH_PRODUCTS,
   SEARCH_DOUBAN,
-  ADD_BOOK
+  ADD_PRODUCT
 } from '@/constants/values'
 import Douban from '@/components/douban.vue'
 
@@ -99,11 +99,11 @@ export default {
     }
   },
   computed: mapGetters([
-    'books',
+    'products',
     'douban'
   ]),
   mounted () {
-    this.$store.dispatch(FETCH_BOOKS)
+    this.$store.dispatch(FETCH_PRODUCTS)
   },
   methods: {
     /**
@@ -111,7 +111,7 @@ export default {
        */
     searchBooks () {
       const params = this.query
-      this.$store.dispatch(FETCH_BOOKS, params)
+      this.$store.dispatch(FETCH_PRODUCTS, params)
     },
     /**
        * 从豆瓣搜索图书
@@ -132,7 +132,7 @@ export default {
         summary: book.summary,
         image: book.images.medium
       }
-      this.$store.dispatch(ADD_BOOK, {
+      this.$store.dispatch(ADD_PRODUCT, {
         params: data,
         cb: () => {
           this.dialogVisible = false
@@ -161,3 +161,8 @@ export default {
   }
 }
 </script>
+<style>
+  .product_img {
+    height: 180px;
+  }
+</style>

@@ -1,21 +1,21 @@
 <template>
   <el-row :gutter="20">
     <el-col :span="8" v-for="book in books" :key="book.bookId || book.id">
-      <Book :book="book" :choose="choose" />
+      <Product :book="book" :choose="choose" />
     </el-col>
   </el-row>
 </template>
 
 <script>
-import Book from '@/components/Book.vue'
+import Product from '@/components/AdminProduct.vue'
 export default {
-  name: 'BookList',
+  name: 'ProductList',
   props: [
     'books',
     'choose'
   ],
   components: {
-    Book
+    Product
   }
 }
 </script>
