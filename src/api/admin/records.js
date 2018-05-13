@@ -119,19 +119,10 @@ export function searchRecordByNum (param) {
   })
 }
 // 通过会员id查询已借书籍
-export function searchRecordByMemberId (param) {
-  return new Promise((resolve, reject) => {
-    fetch(
-      `${prefix}/getRecords.service.php?action=searchRecordsByMemberId&memberId=${param}`
-    )
-      .then(res => {
-        return res.json()
-      })
-      .then(res => {
-        resolve(res.data)
-      })
-      .catch(err => {
-        reject(err)
-      })
+export function searchRecordByMemberId (params) {
+  return fetch('/api/recordlist', {
+    params: {
+      ...params
+    }
   })
 }

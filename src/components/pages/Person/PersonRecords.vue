@@ -3,9 +3,7 @@
     <el-input placeholder="请输入书籍名称筛选" icon="search" v-model="query">
     </el-input>
     <el-table :data="records" stripe style="width: 100%">
-      <el-table-column prop="bookIsbn" label="书籍ISBN码">
-      </el-table-column>
-      <el-table-column prop="bookTitle" label="书籍名称">
+      <el-table-column prop="title" label="书籍名称">
       </el-table-column>
       <el-table-column prop="borrowTime" label="借阅时间">
       </el-table-column>
@@ -28,7 +26,7 @@ export default {
     }
   },
   created () {
-    searchRecordByMemberId(localStorage.getItem('userId'))
+    searchRecordByMemberId('test')
       .then(res => {
         this.records = res
       })

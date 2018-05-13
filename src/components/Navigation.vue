@@ -12,9 +12,6 @@
         <el-menu-item index="2-2">
           <router-link :to="{ path: PERSON_RECORDS }">借阅记录</router-link>
         </el-menu-item>
-        <el-menu-item index="2-3">
-          <router-link :to="{ path: PERSON_ORDERS }">订单管理</router-link>
-        </el-menu-item>
       </el-submenu>
     </template>
     <template v-else>

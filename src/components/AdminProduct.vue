@@ -1,11 +1,11 @@
 <template>
   <el-card :body-style="{ padding: '0px' }">
-    <img :src="book.bookImg" class="image">
+    <img :src="book.img" class="image">
     <div style="padding: 14px;">
-      <span>{{book.bookTitle}}</span>
+      <span>{{book.title}}</span>
       <div class="bottom clearfix">
         <time class="time">{{book.createTime}}</time>
-        <p v-if="book.bookState !== '0'">该书无法借阅</p>
+        <p v-if="book.state !== '0'">该书无法借阅</p>
         <el-button v-else class="button" type="primary" @click="choose(book)">借阅</el-button>
       </div>
     </div>

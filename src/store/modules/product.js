@@ -16,14 +16,13 @@ import {
 const state = {
   data: [],
   // 从豆瓣搜索到的结果
-  douban: [],
-  bookRes: []
+  douban: []
 }
 // getters
 const getters = {
   products: state => state.data,
   douban: state => state.douban,
-  bookRes: state => state.bookRes
+  bookRes: state => state.data
 }
 // actions
 const actions = {

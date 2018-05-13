@@ -2,16 +2,16 @@
   <div class="container">
     <div>
       <el-card>
-        <h4>收货人：{{member.memberName}}</h4>
+        <h4>收货人：{{user.username}}</h4>
         <p>联系方式：
-          <span>{{member.memberTel}}</span>
+          <span>{{user.tel}}</span>
         </p>
         <p>收货地址：
-          <span>{{member.memberAddress}}</span>
+          <span>{{user.address}}</span>
         </p>
       </el-card>
-      <router-link to="{ path: '/index' }">返回修改购物车</router-link>
-      <el-table :data="cartList" stripe style="width: 100%">
+      <router-link to="/index">返回修改购物车</router-link>
+      <el-table :data="cartProducts" stripe style="width: 100%">
         <el-table-column prop="title" label="商品名">
         </el-table-column>
         <el-table-column prop="price" label="价格">
@@ -20,10 +20,10 @@
       <el-input style="margin-top: 20px;" type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="留言" v-model="message">
       </el-input>
       <h4>商品数量：
-        <span>{{sumNum}}</span>
+        <span>{{cartProducts.length}}</span>
       </h4>
       <h4>总价格：
-        <span>{{countPrice}}</span>
+        <span>{{sumPrice}}</span>
       </h4>
     </div>
     <el-button @click="createOrder()">提交订单</el-button>
@@ -32,6 +32,9 @@
 
 <script>
 import router from '@/router/router'
+import {
+  mapGetters
+} from 'vuex'
 export default {
   name: 'Order',
   data () {
@@ -48,23 +51,15 @@ export default {
     }
   },
   computed: {
-    member () {
-      return this.$store.state.member
-    },
-    cartList () {
-      return this.$store.state.carts
-    },
-    countPrice () {
-      return this.$store.getters.count
-    },
-    sumNum () {
-      return this.cartList.length
-    }
+    ...mapGetters([
+      'user',
+      'cartProducts',
+      'sumPrice'
+    ])
   },
   methods: {
     createOrder () {
-      this.$store
-        .dispatch('CREATE_ORDER', this.message)
+      this.$store.dispatch('checkout', this.message)
         .then(() => {
           router.replace({
             path: '/success'

@@ -12,7 +12,7 @@ import Login from '@/components/pages/login.vue'
 import Order from '@/components/Order.vue'
 
 import ProductDetail from '@/components/pages/ProductDetail.vue'
-
+import Success from '@/components/pages/Success.vue'
 // ----person-----
 import Person from '@/components/pages/Person/Person.vue'
 import PersonDetail from '@/components/pages/Person/PersonDetail.vue'
@@ -45,6 +45,11 @@ const router = new Router({
           path: 'order',
           name: '订单',
           component: Order
+        },
+        {
+          path: 'success',
+          name: '成功',
+          component: Success
         },
         {
           // 商品详情页
@@ -94,7 +99,7 @@ const router = new Router({
       name: '后台首页',
       component: SideLayout,
       meta: { adminAuth: true },
-      redirect: '/admin/index',
+      redirect: '/admin/books',
       children: [
         {
           // 借书页

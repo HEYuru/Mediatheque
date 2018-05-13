@@ -4,10 +4,7 @@ import Vuex from 'vuex'
 import product from '@/store/modules/product'
 import auth from '@/store/modules/auth'
 import cart from '@/store/modules/cart'
-
-// import member from '@/store/modules/member';
-// import record from '@/store/modules/record';
-// import order from '@/store/modules/order';
+import record from '@/store/modules/record'
 
 Vue.use(Vuex)
 
@@ -17,7 +14,8 @@ const store = new Vuex.Store({
   modules: {
     cart,
     product,
-    auth
+    auth,
+    record
   },
   strict: debug
 })

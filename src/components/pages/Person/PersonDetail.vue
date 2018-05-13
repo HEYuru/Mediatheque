@@ -3,19 +3,19 @@
     <el-card>
       <h3>{{user.username}}</h3>
       <p>会员类型：
-        <span>{{user.memberRank}}</span>
+        <span>{{user.rank}}</span>
       </p>
       <p>学号：
-        <span>{{user.memberNum}}</span>
+        <span>{{user.num}}</span>
       </p>
       <p>联系方式：
-        <span>{{user.memberTel}}</span>
+        <span>{{user.tel}}</span>
       </p>
       <p>地址：
-        <span>{{user.memberAddress}}</span>
+        <span>{{user.address}}</span>
       </p>
       <p>登记日期：
-        <span>{{user.memberCreateTime}}</span>
+        <span>{{user.createTime}}</span>
       </p>
     </el-card>
     <div class="row">

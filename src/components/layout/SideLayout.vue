@@ -3,12 +3,6 @@
     <el-row>
       <el-col :span="4">
         <el-menu class="sidenav">
-          <el-menu-item index="1">
-            <router-link :to="{ path: '/admin/index' }">租书</router-link>
-          </el-menu-item>
-          <el-menu-item index="2">
-            <router-link :to="{ path: '/admin/return' }">还书</router-link>
-          </el-menu-item>
           <el-menu-item index="3">
             <router-link :to="{ path: '/admin/books' }">书籍列表</router-link>
           </el-menu-item>
@@ -17,9 +11,6 @@
           </el-menu-item>
           <el-menu-item index="5">
             <router-link :to="{ path: '/admin/records' }">借阅记录</router-link>
-          </el-menu-item>
-          <el-menu-item index="6">
-            <router-link :to="{ path: '/admin/orders' }">订单列表</router-link>
           </el-menu-item>
           <el-menu-item index="7" v-if="isLogin">
             <a @click="dialogVisible = true">注销</a>

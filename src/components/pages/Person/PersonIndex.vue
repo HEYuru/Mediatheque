@@ -41,7 +41,6 @@ import router from '@/router/router'
 
 import Product from '@/components/Product.vue'
 import Cart from '@/components/Cart.vue'
-
 import {
   FETCH_PRODUCTS,
   SEARCH_PRODUCTS
@@ -68,12 +67,9 @@ export default {
   computed: {
     ...mapGetters([
       'products',
-      'cartProducts'
-    ]),
-
-    sumPrice () {
-      return this.$store.getters.count
-    }
+      'cartProducts',
+      'sumPrice'
+    ])
   },
   methods: {
     // 分类显示

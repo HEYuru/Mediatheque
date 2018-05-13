@@ -9,7 +9,14 @@ const state = {
 // getters
 const getters = {
   checkoutStatus: state => state.checkoutStatus,
-  cartProducts: state => state.added
+  cartProducts: state => state.added,
+  sumPrice: state => {
+    let sum = 0
+    for (let item of state.added) {
+      sum = sum + item.price
+    }
+    return sum
+  }
 
   // cartProducts: (state, rootState) => {
   //   return state.added.map(id => {
@@ -26,11 +33,13 @@ const getters = {
 
 // actions
 const actions = {
-  checkout ({ commit, state }, products) {
+  checkout ({ commit, state }, carts) {
     // const savedCartItems = [...state.added]
     commit('setCheckoutStatus', null)
     // empty cart
     commit('setCartItems', [])
+    commit('setCheckoutStatus', 'successful')
+    localStorage.setItem('carts', [])
     // shop.buyProducts(
     //   products,
     //   () => commit('setCheckoutStatus', 'successful'),

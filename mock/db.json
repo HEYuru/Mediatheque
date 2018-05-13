@@ -5,9 +5,44 @@
       "message": "",
       "data": {
         "username": "xigua",
-        "isAdmin": 1
+        "isAdmin": 1,
+        "tel": 12345678,
+        "address": "test",
+        "rank": "VIP",
+        "num": "66666",
+        "createTime": "2018-05-06"
       }
     },
+  "recordlist":
+  {
+    "success": 1,
+    "message": "",
+    "data":[
+    {
+      "recordId": 1,
+      "title": "追风筝的人",
+      "borrowTime": "2018-05-06",
+      "returnTime": "2018-07-06"
+    },
+      {
+        "recordId": 1,
+        "title": "追风筝的人",
+        "borrowTime": "2018-02-06",
+        "returnTime": "2018-03-06"
+      }
+      ]
+  },
+  "records":
+  {
+    "success": 1,
+    "message": "",
+    "data": {
+      "recordId": 1,
+      "title": "追风筝的人",
+      "borrowTime": "2018-05-06",
+      "returnTime": "2018-07-06"
+    }
+  },
   "product": {
     "success": 1,
     "message": "",
@@ -18,7 +53,7 @@
           "id": 0,
           "title": "追风筝的人",
           "uuid": "787208061644",
-          "price": "29",
+          "price": 29,
           "borrowTimes": "1",
           "returnTime": null,
           "summary": "12岁的阿富汗富家少爷阿米尔与仆人哈桑情同手足。然而，在一场风筝比赛后，发生了一件悲惨不堪的事，阿米尔为自己的懦弱感到自责和痛苦，逼走了哈桑，不久，自己也跟随父亲逃往美国。成年后的阿米尔始终无法原谅自己当年对哈桑的背叛。为了赎罪，阿米尔再度踏上暌违二十多年的故乡，希望能为不幸的好友尽最后一点心力，却发现一个惊天谎言，儿时的噩梦再度重演，阿米尔该如何抉择？故事如此残忍而又美丽，作者以温暖细腻的笔法勾勒人性的本质与救赎，读来令人荡气回肠。",
@@ -32,7 +67,7 @@
           "id": 1,
           "title": "Avengers: Infinity War",
           "uuid": "tt4154756",
-          "price": "166",
+          "price": 166,
           "borrowTimes": "1",
           "returnTime": null,
           "summary": "《复仇者联盟3：无限战争》是漫威电影宇宙10周年的历史性集结，将为影迷们带来史诗版的终极对决。面对灭霸突然发起的闪电袭击，复仇者联盟及其所有超级英雄盟友必须全力以赴，才能阻止他对全宇宙造成毁灭性的打击。",
@@ -46,7 +81,7 @@
           "id": 3,
           "title": "Beerbongs & Bentleys",
           "uuid": "9555150719315",
-          "price": "33",
+          "price": 33,
           "borrowTimes": "1",
           "returnTime": null,
           "summary": "Beerbongs & Bentleys is the second studio album by American rapper Post Malone, released by Republic Records on April 27, 2018. ",
@@ -70,7 +105,7 @@
           "id": 1,
           "title": "Avengers: Infinity War",
           "uuid": "tt4154756",
-          "price": "166",
+          "price": 166,
           "borrowTimes": "1",
           "returnTime": null,
           "summary": "《复仇者联盟3：无限战争》是漫威电影宇宙10周年的历史性集结，将为影迷们带来史诗版的终极对决。面对灭霸突然发起的闪电袭击，复仇者联盟及其所有超级英雄盟友必须全力以赴，才能阻止他对全宇宙造成毁灭性的打击。",
@@ -84,7 +119,7 @@
           "id": 3,
           "title": "Beerbongs & Bentleys",
           "uuid": "9555150719315",
-          "price": "33",
+          "price": 33,
           "borrowTimes": "1",
           "returnTime": null,
           "summary": "Beerbongs & Bentleys is the second studio album by American rapper Post Malone, released by Republic Records on April 27, 2018. ",
