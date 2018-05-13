@@ -4,20 +4,16 @@
       <el-col :span="12">
         <el-input
           placeholder="请输入会员姓名或学号"
-          icon="search"
-          v-model="memberQuery"
-          :on-icon-click="searchMember.bind(this, memberQuery)"
-        >
+          v-model="memberQuery">
+          <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
         <MemberList :members="memberRes" :choose="chooseMember" />
       </el-col>
       <el-col :span="12">
         <el-input
           placeholder="请输入书籍名或ISBN码"
-          icon="search"
-          v-model="bookQuery"
-          :on-icon-click="searchBook.bind(this, bookQuery)"
-        >
+          v-model="bookQuery">
+          <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
         <BookList :books="bookRes" :choose="chooseBook" />
       </el-col>
@@ -36,10 +32,6 @@
 </template>
 
 <script>
-/**
-   * @file 后台首页，借阅图书
-   * @author ltaoo<litaowork@aliyun.com>
-   */
 import {
   mapGetters
 } from 'vuex'

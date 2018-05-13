@@ -2,7 +2,7 @@
   <div>
     <el-row>
       <el-col :span="4">
-        <el-menu class="sidenav" theme="dark">
+        <el-menu class="sidenav">
           <el-menu-item index="1">
             <router-link :to="{ path: '/admin/index' }">租书</router-link>
           </el-menu-item>
@@ -27,7 +27,7 @@
         </el-menu>
       </el-col>
       <el-col :span="20">
-        <Headers
+        <AdminHeader
           :routes="[]"
           :user="user"
         />
@@ -47,20 +47,17 @@
 </template>
 
 <script>
-/**
-   * @file 后台根视图
-   * @author ltaoo<litaowork@aliyun.com>
-   */
+
 import {
   mapGetters
 } from 'vuex'
-import Headers from '@/components/AdminHeader'
+import AdminHeader from '@/components/AdminHeader'
 import router from '@/router/router'
 
 export default {
   name: 'AdminIndex',
   components: {
-    Headers
+    AdminHeader
   },
   data () {
     return {

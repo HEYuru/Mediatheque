@@ -34,10 +34,6 @@
 </template>
 
 <script>
-/**
- * @file 新增/编辑会员表单
- * @author ltaoo<litaowork@aliyun.com>
- */
 import {
   SEARCH_MEMBER
 } from '@/constants/values'

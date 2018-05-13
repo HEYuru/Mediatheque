@@ -7,10 +7,25 @@ import store from '@/store'
 
 import BasicLayout from '@/components/layout/BasicLayout'
 import SideLayout from '@/components/layout/SideLayout'
-import Index from '@/components/pages/index.vue'
+import Index from '@/components/pages/Person/PersonIndex.vue'
 import Login from '@/components/pages/login.vue'
-import Borrow from '@/components/pages/AdminBorrow.vue'
 
+
+import ProductDetail from '@/components/pages/ProductDetail.vue'
+
+// ----person-----
+import Person from '@/components/pages/Person/Person.vue'
+import PersonDetail from '@/components/pages/Person/Detail.vue'
+import PersonOrder from '@/components/pages/Person/Orders.vue'
+import PersonRecord from '@/components/pages/Person/Records.vue'
+
+// ---- Admin-----
+import AdminReturn from '@/components/pages/Admin/AdminReturn.vue'
+import AdminMembers from '@/components/pages/Admin/AdminMembers.vue'
+import AdminOrders from '@/components/pages/Admin/AdminOrders.vue'
+import AdminProducts from '@/components/pages/Admin/AdminProducts.vue'
+import AdminRecords from '@/components/pages/Admin/AdminRecords.vue'
+import AdminIndex from '@/components/pages/Admin/AdminIndex.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -25,6 +40,41 @@ const router = new Router({
           path: 'index',
           name: '首页',
           component: Index
+        },
+        {
+          // 商品详情页
+          path: 'product/:id',
+          name: 'GoodsDetail',
+          component: ProductDetail
+        },
+        {
+          // 用户主页
+          path: 'person',
+          name: 'Person',
+          component: Person,
+          meta: { requiresAuth: true },
+          children: [
+            {
+              // 用户信息页
+              path: 'detail',
+              component: PersonDetail,
+              meta: { requiresAuth: true }
+            },
+            {
+              // 用户订单列表页
+              path: 'orders',
+              name: 'PersonOrders',
+              component: PersonOrder,
+              meta: { requiresAuth: true }
+            },
+            {
+              // 用户借阅记录页
+              path: 'records',
+              name: 'PersonRecords',
+              component: PersonRecord,
+              meta: { requiresAuth: true }
+            }
+          ]
         }
       ]
     },
@@ -45,7 +95,42 @@ const router = new Router({
           // 借书页
           path: 'index',
           name: '借阅',
-          component: Borrow,
+          component: AdminIndex,
+          meta: { adminAuth: true }
+        },
+        {
+          // 还书页
+          path: 'return',
+          name: '还书',
+          component: AdminReturn,
+          meta: { adminAuth: true }
+        },
+        {
+          // 会员列表页
+          path: 'members',
+          name: '会员列表',
+          component: AdminMembers,
+          meta: { adminAuth: true }
+        },
+        {
+          // 书籍列表页
+          path: 'books',
+          name: '书籍列表',
+          component: AdminProducts,
+          meta: { adminAuth: true }
+        },
+        {
+          // 借阅记录列表页
+          path: 'records',
+          name: '借阅记录列表',
+          component: AdminRecords,
+          meta: { adminAuth: true }
+        },
+        {
+          // 订单列表页
+          path: 'orders',
+          name: '订单列表',
+          component: AdminOrders,
           meta: { adminAuth: true }
         }
       ]

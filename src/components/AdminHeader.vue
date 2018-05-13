@@ -27,10 +27,7 @@
 </template>
 
 <script>
-/**
-   * @file 后台 Header，显示面包屑与用户名
-   * @author ltaoo<litaowork@aliyun.com>
-   */
+
 import {
   mapGetters
 } from 'vuex'
@@ -41,7 +38,7 @@ import {
 } from '@/constants/values'
 
 export default {
-  name: 'header',
+  name: 'adminheader',
   data () {
     return {
       USER_LOGIN

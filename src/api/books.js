@@ -1,12 +1,5 @@
-/**
- * @file 和书籍相关的 api
- * @author ltaoo<litaowork@aliyun.com>
- */
 import fetchJsonp from 'fetch-jsonp'
-import {
-  prefix,
-  doubanApi
-} from '@/api/config'
+import { prefix, doubanApi } from '@/api/config'
 import fetch from '@/api/fetch'
 
 /**
@@ -16,7 +9,17 @@ import fetch from '@/api/fetch'
  * @param {number} size - 每页数量
  */
 export function fetchBooks (params, page = 1, size = 20) {
+  console.log('imcczy-feychbook', params)
   return fetch('/api/books', {
+    params: {
+      page,
+      size
+    }
+  })
+}
+export function searchBooks (params, page = 1, size = 20) {
+  console.log('imcczy-feychbook', params)
+  return fetch('/api/searchbooks', {
     params: {
       ...params,
       page,

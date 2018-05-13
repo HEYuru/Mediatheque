@@ -3,7 +3,6 @@
  * 1、在请求开始时显示全局加载条
  * 2、请求成功，隐藏加载条
  * 3、请求失败，隐藏加载条并提示"请求失败"
- * @author ltaoo<litaowork@aliyun.com>
  */
 import Axios from 'axios'
 

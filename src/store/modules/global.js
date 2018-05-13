@@ -1,7 +1,4 @@
-/**
- * @file 一些全局用 state
- * @author ltaoo<litaowork@aliyun.com>
- */
+
 import {
   INIT
 } from '@/constants/values'

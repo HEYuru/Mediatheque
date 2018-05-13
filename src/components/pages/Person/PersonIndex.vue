@@ -2,25 +2,22 @@
   <div class="container">
     <el-row :gutter="20">
       <el-col :span="18">
-        <el-input
-          placeholder="请输入书籍名或ISBN码查询"
-          suffix-icon="search"
-          v-model="query"
-        >
+        <el-input placeholder="请输入书籍名或ISBN码查询" v-model="query">
+          <el-select v-model="select" slot="prepend" placeholder="请选择">
+            <el-option label="ALL" value="null"></el-option>
+            <el-option label="图书" value="1"></el-option>
+            <el-option label="电影" value="2"></el-option>
+            <el-option label="专辑" value="3"></el-option>
+          </el-select>
+          <el-button  v-on:click="search(query)" slot="append" icon="el-icon-search"></el-button>
         </el-input>
         <el-row :gutter="20">
           <el-col :span="12" v-for="book in books" :key="book.bookId">
-            <Goods :item="book" :choose="addCart" />
+            <Goods v-if="isselect(select,book)" :item="book" :choose="addCart" />
           </el-col>
         </el-row>
       </el-col>
       <el-col :span="6">
-        <el-input
-          placeholder="请输入书籍名或ISBN码查询"
-          suffix-icon="search"
-          v-model="query"
-        >
-        </el-input>
         <el-row>
           <el-col :span="24" v-for="item in carts" :key="item.bookId">
             <Cart :item="item" :remove="removeFromCart" />
@@ -33,10 +30,7 @@
 </template>
 
 <script>
-/**
-   * @file 用户首页
-   * @author ltaoo<litaowrok@aliyun.com>
-   */
+
 // import {
 //   computedPriceByTimes,
 // } from '@/utils/index';
@@ -49,7 +43,8 @@ import Goods from '@/components/Goods.vue'
 import Cart from '@/components/Cart.vue'
 
 import {
-  FETCH_BOOKS
+  FETCH_BOOKS,
+  SEARCH_BOOKS
 } from '@/constants/values'
 
 export default {
@@ -60,6 +55,7 @@ export default {
   },
   data () {
     return {
+      select: '',
       // 用户是否登录
       userLogin: true,
       // 筛选图书条件
@@ -82,6 +78,20 @@ export default {
     }
   },
   methods: {
+    // 分类显示
+    isselect (obj, book) {
+      if (obj === 'null') return true
+      else if (obj) {
+        return obj === book.type
+      } else return true
+    },
+    search (obj) {
+      if (!obj) {
+        this.$store.dispatch(FETCH_BOOKS)
+        return
+      }
+      this.$store.dispatch(SEARCH_BOOKS, this.query)
+    },
     addCart (obj) {
       console.log('imcczy', obj.bookTitle)
       //   const carts = this.carts;
@@ -139,3 +149,12 @@ export default {
   }
 }
 </script>
+
+<style>
+  .el-select .el-input {
+    width: 130px;
+  }
+  .input-with-select .el-input-group__prepend {
+    background-color: #fff;
+  }
+</style>
