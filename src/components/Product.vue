@@ -2,7 +2,7 @@
   <el-card :body-style="{ padding: '0px' }">
     <img class="product_img" :src="item.coverImg" style="float: left;">
     <div style="float: left; padding: 10px;">
-      <router-link class="product_link" :to="{ path: '/product/' + item.id }">{{item.title}}</router-link>
+      <router-link class="product_link" :to="{ path: '/product/' + item.uuid }">{{item.title}}</router-link>
       <p class="product_price">
         <span>价格：
           ￥{{item.price}}
@@ -43,5 +43,6 @@ export default {
   }
   .product_img {
     height: 180px;
+    width: 130px;
   }
 </style>

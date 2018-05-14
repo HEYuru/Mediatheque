@@ -57,7 +57,7 @@ export function createProduct (params) {
  * @param {number} id - 书籍 id
  */
 export function searchProductById (id) {
-  return fetch(`/api/searchproductid/${id}`)
+  return fetch(`/api/searchproductid/?uuid=${id}`)
 }
 
 // 更新书籍状态

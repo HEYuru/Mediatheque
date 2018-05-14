@@ -5,7 +5,7 @@ import product from '@/store/modules/product'
 import auth from '@/store/modules/auth'
 import cart from '@/store/modules/cart'
 import record from '@/store/modules/record'
-
+import member from '@/store/modules/member'
 Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
@@ -15,7 +15,8 @@ const store = new Vuex.Store({
     cart,
     product,
     auth,
-    record
+    record,
+    member
   },
   strict: debug
 })

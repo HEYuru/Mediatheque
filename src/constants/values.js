@@ -30,7 +30,7 @@ export const UPDATE_ORDER = 'UPDATE_ORDER'
 // -----------------------
 export const USER_LOGIN = '/login'
 export const HOME = '/'
-export const ADMIN_HOME = '/admin/index'
+export const ADMIN_HOME = '/admin'
 
 export const PERSON_HOME = '/person/detail'
 export const PERSON_RECORDS = '/person/records'

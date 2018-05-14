@@ -60,8 +60,8 @@ const actions = {
       if (!cartItem) {
         commit('pushProductToCart', product)
       } else {
-        console.log('只允许有一份')
-        return
+        alert('已经在购物车中')
+        return false
       }
       console.log('add to cat', state.added)
       // remove 1 item from stock

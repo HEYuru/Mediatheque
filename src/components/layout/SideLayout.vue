@@ -3,6 +3,9 @@
     <el-row>
       <el-col :span="4">
         <el-menu class="sidenav">
+          <el-menu-item index="2">
+            <router-link :to="{ path: '/index' }">前台首页</router-link>
+          </el-menu-item>
           <el-menu-item index="3">
             <router-link :to="{ path: '/admin/books' }">书籍列表</router-link>
           </el-menu-item>

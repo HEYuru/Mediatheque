@@ -3,5 +3,7 @@
   "/api/product\\?page=:page\\&size=:size": "/product",
   "/api/searchproduct\\?key=:params\\&page=:page\\&size=:size": "/searchproducts",
   "/api/records\\?page=:page\\&size=:size": "/records",
-  "/api/recordlist\\?page=:page\\&size=:size": "/recordlist"
+  "/api/recordlist\\?page=:page\\&size=:size": "/recordlist",
+  "/api/searchproductid/*":"/searchproductid",
+  "/api/members/*": "/members"
 }

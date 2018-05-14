@@ -14,7 +14,8 @@ import {
 import {
   fetchRecords,
   createRecord,
-  updateRecord
+  updateRecord,
+  searchRecordByMemberId
 } from '@/api/admin/records'
 
 import {
@@ -25,14 +26,16 @@ import {
 // state
 const state = {
   data: [],
-  recordRes: []
+  recordRes: [],
+  recordhistory: []
 }
 // getters
 const getters = {
   records: state => {
     return state.data
   },
-  recordRes: state => state.recordRes
+  recordRes: state => state.recordRes,
+  recordhistory: state => state.recordhistory
 }
 // actions
 const actions = {
@@ -77,6 +80,16 @@ const actions = {
         commit('save_res', res)
       })
   },
+  FETC_HISTORY ({commit}) {
+    searchRecordByMemberId('test')
+      .then(res => {
+        console.log('adminrecord', res)
+        commit('save_history', res)
+      })
+      .catch(err => {
+        alert(err)
+      })
+  },
   [CREATE_RECORD] (store, {
     params,
     cb
@@ -114,6 +127,10 @@ const mutations = {
   },
   save_res (state, payload) {
     state.recordRes = new Array(payload)
+  },
+  save_history (state, payload) {
+    state.recordhistory = payload
+    console.log('imcczy-history', state.recordhistory)
   }
 }
 

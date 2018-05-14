@@ -24,19 +24,8 @@ export function addComment (post) {
   })
 }
 // 获取评论列表
-export function fetchComments (bookIsbn) {
-  return new Promise((resolve, reject) => {
-    fetch(url(api, 'list', 'bookIsbn', bookIsbn))
-      .then(res => {
-        return res.json()
-      })
-      .then(json => {
-        resolve(json)
-      })
-      .catch(err => {
-        reject(err)
-      })
-  })
+export function fetchComments (params) {
+  return fetch(`/api/getcomments/?id=${params}`)
 }
 // 根据commentId查询
 export function searchCommentById (id) {

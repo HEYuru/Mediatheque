@@ -3,8 +3,7 @@
     <el-row :gutter="20">
       <el-col :span="18">
         <el-input placeholder="请输入书籍名或ISBN码查询" v-model="query">
-          <el-select v-model="select" slot="prepend" placeholder="筛选种类">
-            <el-option label="ALL" value="null"></el-option>
+          <el-select v-model="select" slot="prepend" clearable placeholder="筛选种类">
             <el-option label="图书" value="1"></el-option>
             <el-option label="电影" value="2"></el-option>
             <el-option label="专辑" value="3"></el-option>

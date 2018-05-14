@@ -18,17 +18,35 @@
     "success": 1,
     "message": "",
     "data":[
-    {
-      "recordId": 1,
-      "title": "追风筝的人",
-      "borrowTime": "2018-05-06",
-      "returnTime": "2018-07-06"
-    },
       {
+        "username": "xigua",
+        "isAdmin": 1,
+        "tel": 12345678,
+        "address": "test",
+        "rank": "VIP",
+        "num": "66666",
+        "createTime": "2018-05-06",
         "recordId": 1,
         "title": "追风筝的人",
         "borrowTime": "2018-02-06",
-        "returnTime": "2018-03-06"
+        "returnTime": "2018-03-06",
+        "uuid": "787208061644",
+        "tag": "已还"
+      },
+      {
+        "username": "xigua",
+        "isAdmin": 1,
+        "tel": 12345678,
+        "address": "test",
+        "rank": "VIP",
+        "num": "66666",
+        "createTime": "2018-05-06",
+        "recordId": 1,
+        "title": "追风筝的人",
+        "borrowTime": "2018-05-06",
+        "returnTime": "2018-07-06",
+        "uuid": "787208061644",
+        "tag": "未还"
       }
       ]
   },
@@ -37,10 +55,19 @@
     "success": 1,
     "message": "",
     "data": {
+      "username": "xigua",
+      "isAdmin": 1,
+      "tel": 12345678,
+      "address": "test",
+      "rank": "VIP",
+      "num": "66666",
+      "createTime": "2018-05-06",
       "recordId": 1,
       "title": "追风筝的人",
       "borrowTime": "2018-05-06",
-      "returnTime": "2018-07-06"
+      "returnTime": "2018-07-06",
+      "uuid": "787208061644",
+      "tag": "未还"
     }
   },
   "product": {
@@ -132,5 +159,74 @@
       "count": 10,
       "currentPage": 1
     }
+  },
+  "searchproductid":{
+    "success": 1,
+    "message": "",
+    "data": {
+          "type": "1",
+          "id": 0,
+          "title": "追风筝的人",
+          "uuid": "787208061644",
+          "price": 29,
+          "borrowTimes": "1",
+          "returnTime": null,
+          "summary": "12岁的阿富汗富家少爷阿米尔与仆人哈桑情同手足。然而，在一场风筝比赛后，发生了一件悲惨不堪的事，阿米尔为自己的懦弱感到自责和痛苦，逼走了哈桑，不久，自己也跟随父亲逃往美国。成年后的阿米尔始终无法原谅自己当年对哈桑的背叛。为了赎罪，阿米尔再度踏上暌违二十多年的故乡，希望能为不幸的好友尽最后一点心力，却发现一个惊天谎言，儿时的噩梦再度重演，阿米尔该如何抉择？故事如此残忍而又美丽，作者以温暖细腻的笔法勾勒人性的本质与救赎，读来令人荡气回肠。",
+          "state": "0",
+          "coverImg": "http://imcczy.b0.upaiyun.com/2018-05-13-065638.jpg",
+          "createTime": "2006-05-13",
+          "inventory": 2
+        }
+  },
+  "getcomments":{
+    "success": 1,
+    "message": "",
+    "data": [{
+      "commentId": 123456,
+      "content": "清风皓月识我意",
+      "memberName": "知涯",
+      "createtime": "2018-05-06"
+
+    },
+      {
+        "commentId": 123457,
+        "content": "清风是你",
+        "memberName": "知涯",
+        "createtime": "2018-05-07"
+      },
+      {
+        "commentId": 123458,
+        "content": "皓月也是你",
+        "memberName": "知涯",
+        "createtime": "2018-05-08"
+      }]
+  },
+  "members":{
+    "success": 1,
+    "message": "",
+    "data": [
+      {
+      "username": "xigua",
+      "isAdmin": 1,
+      "tel": 12345678,
+      "address": "test",
+      "rank": "VIP",
+      "num": "66666",
+      "createTime": "2018-05-06",
+      "borrowNum": 1,
+      "borrowTimes": 2
+    },
+      {
+        "username": "xiezi",
+        "isAdmin": 0,
+        "tel": 123456780,
+        "address": "test",
+        "rank": "VIP",
+        "num": "233333",
+        "createTime": "2018-05-012",
+        "borrowNum": 10,
+        "borrowTimes": 999
+      }
+    ]
   }
 }

@@ -1,43 +1,43 @@
 <template>
   <div class="container">
-    <el-form ref="member" :model="member" :rules="rules" label-width="80px">
-      <el-form-item label="会员名" prop="username">
-        <el-input placeholder="请输入会员名" v-model="member.username">
+    <el-form ref="form" :model="editedMember" :rules="rules" label-width="80px">
+      <el-form-item label="会员名" prop="memberName">
+        <el-input placeholder="请输入会员名" v-model="editedMember.memberName">
         </el-input>
       </el-form-item>
-      <el-form-item label="学号" prop="num">
-        <el-input placeholder="请输入学号" v-model="member.num">
+      <el-form-item label="学号" prop="memberNum">
+        <el-input placeholder="请输入学号" v-model="editedMember.memberNum">
         </el-input>
       </el-form-item>
-      <el-form-item label="联系方式" prop="tel">
-        <el-input placeholder="请输入联系方式" v-model="member.tel">
+      <el-form-item label="联系方式" prop="memberTel">
+        <el-input placeholder="请输入联系方式" v-model="editedMember.memberTel">
         </el-input>
       </el-form-item>
-      <el-form-item label="地址" prop="address">
-        <el-input placeholder="请输入地址" v-model="member.address">
+      <el-form-item label="地址" prop="memberAddress">
+        <el-input placeholder="请输入地址" v-model="editedMember.memberAddress">
         </el-input>
       </el-form-item>
       <el-form-item label="会员类型">
-        <el-radio-group v-model="member.rank">
+        <el-radio-group v-model="editedMember.memberRank">
           <el-radio :label="0">周卡</el-radio>
           <el-radio :label="1">月卡</el-radio>
           <el-radio :label="2">期卡</el-radio>
         </el-radio-group>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="confirm(editedMember)">确 定</el-button>
+        <el-button @click="cancel('form')">取 消</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
-import {
-  SEARCH_MEMBER
-} from '@/constants/values'
+import { SEARCH_MEMBER } from '@/constants/values'
 
 export default {
-  name: 'MemberForm',
-  props: [
-    'member'
-  ],
+  name: 'ProductForm',
+  props: ['member', 'confirm', 'cancel', 'update'],
   data () {
     // 自定义学号校验规则，学号必须是唯一值
     const checkNum = (rule, value, callback) => {
@@ -48,7 +48,7 @@ export default {
         return callback(new Error('学号必须为 10 位'))
       }
       // 如果是更新会员信息，当学号一致时不做处理
-      if (this.update && this.member.num === value) {
+      if (this.update && this.member.memberNum === value) {
         callback()
         return
       }
@@ -67,7 +67,7 @@ export default {
     }
     return {
       rules: {
-        username: [
+        memberName: [
           {
             required: true,
             message: '请输入活动名称',
@@ -79,13 +79,13 @@ export default {
             trigger: 'blur'
           }
         ],
-        num: [
+        memberNum: [
           {
             validator: checkNum,
             trigger: 'blur'
           }
         ],
-        tel: [
+        memberTel: [
           {
             required: true,
             message: '请输入联系方式',
@@ -97,14 +97,14 @@ export default {
             trigger: 'blur'
           }
         ],
-        address: [
+        memberAddress: [
           {
             required: true,
             message: '请输入地址',
             trigger: 'blur'
           }
         ],
-        rank: [
+        memberRank: [
           {
             required: true,
             message: '请选择会员类型',

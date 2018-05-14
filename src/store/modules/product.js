@@ -8,8 +8,8 @@ import {
 import {
   fetchProducts,
   searchProducts,
-  searchByDouban,
-  createProduct
+  searchByDouban
+  // createProduct
 } from '@/api/product'
 
 // state
@@ -32,14 +32,19 @@ const actions = {
   [FETCH_PRODUCTS] ({
     commit
   }, params) {
-    fetchProducts(params)
-      .then((res) => {
-        commit('save_commodity', res.data)
-        console.log('imcczy-commodity', state.data)
-      })
-      .catch(() => {
-        return fetchProducts(null)
-      })
+    const products = localStorage.getItem('products')
+    if (!products) {
+      fetchProducts(params)
+        .then((res) => {
+          commit('save_commodity', res.data)
+          console.log('imcczy-commodity', state.data)
+        })
+        .catch(() => {
+          return fetchProducts(null)
+        })
+    } else {
+      commit('save_commodity', JSON.parse(products))
+    }
   },
   /**
    * 获取图书列表
@@ -98,21 +103,17 @@ const actions = {
     params,
     cb
   }) {
-    createProduct(params)
-      .then((res) => {
-        if (cb) {
-          cb()
-        }
-        commit('add_book', res)
-      }, (err) => {
-        alert(err)
-      })
+    if (cb) {
+      cb()
+    }
+    commit('add_product', params)
   }
 }
 // mutations
 const mutations = {
   save_commodity (state, commoditys) {
     state.data = commoditys
+    localStorage.setItem('products', JSON.stringify(state.data))
   },
   save_res (state, payload) {
     console.log('imcczy-save-res', payload)
@@ -123,6 +124,10 @@ const mutations = {
   },
   incrementProductInventory (state, product) {
     product.inventory++
+  },
+  add_product (state, book) {
+    state.data.push(book)
+    localStorage.setItem('products', JSON.stringify(state.data))
   }
 }
 
