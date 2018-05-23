@@ -1,32 +1,32 @@
 <template>
   <div class="container">
     <el-form ref="form" :model="editedMember" :rules="rules" label-width="80px">
-      <el-form-item label="会员名" prop="memberName">
-        <el-input placeholder="请输入会员名" v-model="editedMember.memberName">
+      <el-form-item label="Nom de member" prop="memberName">
+        <el-input placeholder="Veuillez entrer le nom du membre" v-model="editedMember.memberName">
         </el-input>
       </el-form-item>
-      <el-form-item label="学号" prop="memberNum">
-        <el-input placeholder="请输入学号" v-model="editedMember.memberNum">
+      <el-form-item label="Numéro d'étudiant" prop="memberNum">
+        <el-input placeholder="Veuillez entrer le numéro d'étudiant" v-model="editedMember.memberNum">
         </el-input>
       </el-form-item>
-      <el-form-item label="联系方式" prop="memberTel">
-        <el-input placeholder="请输入联系方式" v-model="editedMember.memberTel">
+      <el-form-item label="Numéro de téléphone" prop="memberTel">
+        <el-input placeholder="Veuillez entrer le numéro de téléphone" v-model="editedMember.memberTel">
         </el-input>
       </el-form-item>
-      <el-form-item label="地址" prop="memberAddress">
-        <el-input placeholder="请输入地址" v-model="editedMember.memberAddress">
+      <el-form-item label="Address" prop="memberAddress">
+        <el-input placeholder="Veuillez entrer le address" v-model="editedMember.memberAddress">
         </el-input>
       </el-form-item>
-      <el-form-item label="会员类型">
+      <el-form-item label="Type de member">
         <el-radio-group v-model="editedMember.memberRank">
-          <el-radio :label="0">周卡</el-radio>
-          <el-radio :label="1">月卡</el-radio>
-          <el-radio :label="2">期卡</el-radio>
+          <el-radio :label="0">Carte de semaine</el-radio>
+          <el-radio :label="1">Carte de mois</el-radio>
+          <el-radio :label="2">Carte de Semestre</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="confirm(editedMember)">确 定</el-button>
-        <el-button @click="cancel('form')">取 消</el-button>
+        <el-button type="primary" @click="confirm(editedMember)">Valider</el-button>
+        <el-button @click="cancel('form')">Annuler</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -42,10 +42,10 @@ export default {
     // 自定义学号校验规则，学号必须是唯一值
     const checkNum = (rule, value, callback) => {
       if (!value) {
-        return callback(new Error('学号不能为空'))
+        return callback(new Error('pas de vide'))
       }
       if (value.length !== 10) {
-        return callback(new Error('学号必须为 10 位'))
+        return callback(new Error('le bon numéro d'étudiant '))
       }
       // 如果是更新会员信息，当学号一致时不做处理
       if (this.update && this.member.memberNum === value) {
@@ -58,7 +58,7 @@ export default {
         },
         cb: res => {
           if (res.length !== 0) {
-            callback(new Error('该会员已存在'))
+            callback(new Error('Membre existe'))
           } else {
             callback()
           }
@@ -70,12 +70,12 @@ export default {
         memberName: [
           {
             required: true,
-            message: '请输入活动名称',
+            message: 'Veuillez entrer le nom du membre',
             trigger: 'blur'
           },
           {
             max: 5,
-            message: '长度在不能超过 5 个字符',
+            message: 'Pas plus de 5 caractères',
             trigger: 'blur'
           }
         ],
@@ -88,26 +88,26 @@ export default {
         memberTel: [
           {
             required: true,
-            message: '请输入联系方式',
+            message: 'Veuillez entrer le numéro de téléphone',
             trigger: 'blur'
           },
           {
             max: 11,
-            message: '长度不能超过 11 个字符',
+            message: 'Pas plus de 11 caractères',
             trigger: 'blur'
           }
         ],
         memberAddress: [
           {
             required: true,
-            message: '请输入地址',
+            message: 'Veuillez entrer l'adresse',
             trigger: 'blur'
           }
         ],
         memberRank: [
           {
             required: true,
-            message: '请选择会员类型',
+            message: 'Veuillez sélectionner le type de membre',
             trigger: 'blur'
           }
         ]

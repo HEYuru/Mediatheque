@@ -38,17 +38,17 @@ const router = new Router({
       children: [
         {
           path: 'index',
-          name: '首页',
+          name: 'Accueil',
           component: Index
         },
         {
           path: 'order',
-          name: '订单',
+          name: 'Commande',
           component: Order
         },
         {
           path: 'success',
-          name: '成功',
+          name: 'success',
           component: Success
         },
         {
@@ -90,13 +90,13 @@ const router = new Router({
     },
     {
       path: '/login',
-      name: '登录',
+      name: 'Login',
       component: Login
     },
     {
       // 后台根视图
       path: '/admin',
-      name: '后台首页',
+      name: 'cote serveur',
       component: SideLayout,
       meta: { adminAuth: true },
       redirect: '/admin/books',
@@ -104,42 +104,42 @@ const router = new Router({
         {
           // 借书页
           path: 'index',
-          name: '借阅',
+          name: 'Emprunt',
           component: AdminIndex,
           meta: { adminAuth: true }
         },
         {
           // 还书页
           path: 'return',
-          name: '还书',
+          name: 'return',
           component: AdminReturn,
           meta: { adminAuth: true }
         },
         {
           // 会员列表页
           path: 'members',
-          name: '会员列表',
+          name: 'List de members',
           component: AdminMembers,
           meta: { adminAuth: true }
         },
         {
           // 书籍列表页
           path: 'books',
-          name: '书籍列表',
+          name: 'List de oeuvre ',
           component: AdminProducts,
           meta: { adminAuth: true }
         },
         {
           // 借阅记录列表页
           path: 'records',
-          name: '借阅记录列表',
+          name: 'Enregistrements',
           component: AdminRecords,
           meta: { adminAuth: true }
         },
         {
           // 订单列表页
           path: 'orders',
-          name: '订单列表',
+          name: 'Commandes',
           component: AdminOrders,
           meta: { adminAuth: true }
         }

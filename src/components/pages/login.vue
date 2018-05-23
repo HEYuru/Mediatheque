@@ -26,7 +26,7 @@ export default {
     login (username, password) {
       if (!username || !username.trim() || !password || !password.trim()) {
         this.$message({
-          message: '请输入用户名或密码'
+          message: 'Veuillez entrer le nom utilisateur et le mot de passe'
         })
         return
       }

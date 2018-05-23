@@ -105,7 +105,7 @@ const actions = {
         if (cb) {
           cb()
         }
-        Message.success('借阅成功')
+        Message.success('Emprunter avec succès')
       })
   },
   [UPDATE_RECORD] ({
@@ -116,7 +116,7 @@ const actions = {
   }) {
     updateRecord(id, params)
       .then((res) => {
-        Message.success('归还成功')
+        Message.success('Retourner avec succès')
       })
   }
 }

@@ -3,7 +3,7 @@
     <el-row :gutter="20">
       <el-col :span="12">
         <el-input
-          placeholder="请输入会员姓名或学号"
+          placeholder="Veuillez entrer le nom du membre"
           v-model="memberQuery">
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
@@ -11,21 +11,21 @@
       </el-col>
       <el-col :span="12">
         <el-input
-          placeholder="请输入书籍名或ISBN码"
+          placeholder="Veuillez entrer le nom du oeuvre"
           v-model="bookQuery">
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
         <ProductList :books="bookRes" :choose="chooseBook" />
       </el-col>
     </el-row>
-    <el-dialog title="请确认以下信息" v-model="dialogVisible" size="small">
+    <el-dialog title="S'il vous plaît confirmer les informations" v-model="dialogVisible" size="small">
       <p>
-        <span>{{choosedMember.memberName}}</span> 借阅
+        <span>{{choosedMember.memberName}}</span> Emprunté
         <span>{{choosedBook.bookTitle}}</span>
       </p>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="borrow(choosedMember, choosedBook)">确 定</el-button>
+        <el-button @click="dialogVisible = false">Annulation</el-button>
+        <el-button type="primary" @click="borrow(choosedMember, choosedBook)">Vaild</el-button>
       </span>
     </el-dialog>
   </div>
@@ -76,7 +76,7 @@ export default {
       if (!param || !param.trim()) {
         // 如果没有输入搜索内容，就显示错误提示
         this.$message({
-          message: '请输入查询条件',
+          message: 'Veuillez entrer les conditions de requête',
           type: 'warning'
         })
         return
@@ -93,7 +93,7 @@ export default {
     searchBook (param) {
       if (!param || !param.trim()) {
         this.$message({
-          message: '请输入查询条件',
+          message: 'Veuillez entrer les conditions de requête',
           type: 'warning'
         })
         return false
@@ -120,7 +120,7 @@ export default {
         this.dialogVisible = true
       } else {
         this.$message({
-          message: '请先选择会员',
+          message: 'Sélectionnez un membre',
           type: 'info'
         })
       }

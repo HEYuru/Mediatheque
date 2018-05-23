@@ -2,11 +2,11 @@
   <div class="container">
     <el-row :gutter="20">
       <el-col :span="18">
-        <el-input placeholder="请输入书籍名或ISBN码查询" v-model="query">
-          <el-select v-model="select" slot="prepend" clearable placeholder="筛选种类">
-            <el-option label="图书" value="1"></el-option>
-            <el-option label="电影" value="2"></el-option>
-            <el-option label="专辑" value="3"></el-option>
+        <el-input placeholder="Veuillez entrer le nom du Oeuvre ou la requête de code ISBN" v-model="query">
+          <el-select v-model="select" slot="prepend" clearable placeholder="Type">
+            <el-option label="Livre" value="1"></el-option>
+            <el-option label="Film" value="2"></el-option>
+            <el-option label="Albm_Audio" value="3"></el-option>
           </el-select>
           <el-button  v-on:click="search(query)" slot="append" icon="el-icon-search"></el-button>
         </el-input>
@@ -22,7 +22,7 @@
             <Cart :item="item" />
           </el-col>
         </el-row>
-        <el-button style="width: 100%;" type="success" @click="order">￥{{sumPrice}} - 结算</el-button>
+        <el-button style="width: 100%;" type="success" @click="order">￥{{sumPrice}} - Total à régler</el-button>
       </el-col>
     </el-row>
   </div>
@@ -89,7 +89,7 @@ export default {
       // 首先判断用户是否登录
       if (!localStorage.getItem('user')) {
         // this.$message({
-        // message: '跳转到登录页'
+        // message: 'return to login'
         // })
         router.push('/login')
       } else {

@@ -4,19 +4,19 @@
       <el-col :span="4">
         <el-menu class="sidenav">
           <el-menu-item index="2">
-            <router-link :to="{ path: '/index' }">前台首页</router-link>
+            <router-link :to="{ path: '/index' }">Accueil</router-link>
           </el-menu-item>
           <el-menu-item index="3">
-            <router-link :to="{ path: '/admin/books' }">书籍列表</router-link>
+            <router-link :to="{ path: '/admin/books' }">liste des oeuvre</router-link>
           </el-menu-item>
           <el-menu-item index="4">
-            <router-link :to="{ path: '/admin/members' }">用户列表</router-link>
+            <router-link :to="{ path: '/admin/members' }">liste de utiliseur</router-link>
           </el-menu-item>
           <el-menu-item index="5">
-            <router-link :to="{ path: '/admin/records' }">借阅记录</router-link>
+            <router-link :to="{ path: '/admin/records' }">Enregistrements</router-link>
           </el-menu-item>
           <el-menu-item index="7" v-if="isLogin">
-            <a @click="dialogVisible = true">注销</a>
+            <a @click="dialogVisible = true">Se déconnecter</a>
           </el-menu-item>
         </el-menu>
       </el-col>
@@ -30,11 +30,11 @@
         </div>
       </el-col>
     </el-row>
-    <el-dialog title="提示" v-model="dialogVisible" size="tiny">
-      <span>确定要退出登录吗？</span>
+    <el-dialog title="tips" v-model="dialogVisible" size="tiny">
+      <span>Voulez-vous lancer l'atterrissage? </span>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="logout()">确 定</el-button>
+        <el-button @click="dialogVisible = false">Annulation</el-button>
+        <el-button type="primary" @click="logout()">Déterminé</el-button>
       </span>
     </el-dialog>
   </div>

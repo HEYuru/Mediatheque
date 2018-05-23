@@ -4,7 +4,7 @@
       "success": 1,
       "message": "",
       "data": {
-        "username": "xigua",
+        "username": "Lily",
         "isAdmin": 1,
         "tel": 12345678,
         "address": "test",
@@ -19,7 +19,7 @@
     "message": "",
     "data":[
       {
-        "username": "xigua",
+        "username": "Lily",
         "isAdmin": 1,
         "tel": 12345678,
         "address": "test",
@@ -27,14 +27,14 @@
         "num": "66666",
         "createTime": "2018-05-06",
         "recordId": 1,
-        "title": "追风筝的人",
+        "title": "The Kite Runner",
         "borrowTime": "2018-02-06",
         "returnTime": "2018-03-06",
         "uuid": "787208061644",
-        "tag": "已还"
+        "tag": "Retourné"
       },
       {
-        "username": "xigua",
+        "username": "Lily",
         "isAdmin": 1,
         "tel": 12345678,
         "address": "test",
@@ -42,11 +42,11 @@
         "num": "66666",
         "createTime": "2018-05-06",
         "recordId": 1,
-        "title": "追风筝的人",
+        "title": "The Kite Runner",
         "borrowTime": "2018-05-06",
         "returnTime": "2018-07-06",
         "uuid": "787208061644",
-        "tag": "未还"
+        "tag": "Pas Retourner"
       }
       ]
   },
@@ -55,7 +55,7 @@
     "success": 1,
     "message": "",
     "data": {
-      "username": "xigua",
+      "username": "Lily",
       "isAdmin": 1,
       "tel": 12345678,
       "address": "test",
@@ -63,11 +63,11 @@
       "num": "66666",
       "createTime": "2018-05-06",
       "recordId": 1,
-      "title": "追风筝的人",
+      "title": "The Kite Runner",
       "borrowTime": "2018-05-06",
       "returnTime": "2018-07-06",
       "uuid": "787208061644",
-      "tag": "未还"
+      "tag": "Pas Retourner"
     }
   },
   "product": {
@@ -78,12 +78,12 @@
         {
           "type": "1",
           "id": 0,
-          "title": "追风筝的人",
+          "title": "The Kite Runner",
           "uuid": "787208061644",
           "price": 29,
           "borrowTimes": "1",
           "returnTime": null,
-          "summary": "12岁的阿富汗富家少爷阿米尔与仆人哈桑情同手足。然而，在一场风筝比赛后，发生了一件悲惨不堪的事，阿米尔为自己的懦弱感到自责和痛苦，逼走了哈桑，不久，自己也跟随父亲逃往美国。成年后的阿米尔始终无法原谅自己当年对哈桑的背叛。为了赎罪，阿米尔再度踏上暌违二十多年的故乡，希望能为不幸的好友尽最后一点心力，却发现一个惊天谎言，儿时的噩梦再度重演，阿米尔该如何抉择？故事如此残忍而又美丽，作者以温暖细腻的笔法勾勒人性的本质与救赎，读来令人荡气回肠。",
+          "summary": "Amir Afghan, un jeune homme riche de 12 ans en Afghanistan, partage la main de son frère avec son serviteur Hasan. Cependant, après un match de cerf-volant, un incident malheureux se produisit: Amir se sentit coupable et misérable de sa faiblesse et obligea Hassan à partir, il suivit bientôt son père aux États-Unis. L'adulte Amir n'a jamais pu pardonner sa trahison de Hassan. Afin de faire l'expiation, Amir s'est de nouveau embarqué dans la ville natale de plus de deux décennies, espérant faire un effort durable pour le malheureux ami, mais a trouvé un mensonge terrifiant, un cauchemar d'enfance se répète, comment décide Amir? L'histoire est si cruelle et belle.L'auteur esquisse la nature et le salut de la nature humaine d'une manière chaude et délicate.",
           "state": "0",
           "coverImg": "http://imcczy.b0.upaiyun.com/2018-05-13-065638.jpg",
           "createTime": "2006-05-13",
@@ -166,12 +166,12 @@
     "data": {
           "type": "1",
           "id": 0,
-          "title": "追风筝的人",
+          "title": "The Kite Runner",
           "uuid": "787208061644",
           "price": 29,
           "borrowTimes": "1",
           "returnTime": null,
-          "summary": "12岁的阿富汗富家少爷阿米尔与仆人哈桑情同手足。然而，在一场风筝比赛后，发生了一件悲惨不堪的事，阿米尔为自己的懦弱感到自责和痛苦，逼走了哈桑，不久，自己也跟随父亲逃往美国。成年后的阿米尔始终无法原谅自己当年对哈桑的背叛。为了赎罪，阿米尔再度踏上暌违二十多年的故乡，希望能为不幸的好友尽最后一点心力，却发现一个惊天谎言，儿时的噩梦再度重演，阿米尔该如何抉择？故事如此残忍而又美丽，作者以温暖细腻的笔法勾勒人性的本质与救赎，读来令人荡气回肠。",
+          "summary": "Amir Afghan, un jeune homme riche de 12 ans en Afghanistan, partage la main de son frère avec son serviteur Hasan. Cependant, après un match de cerf-volant, un incident malheureux se produisit: Amir se sentit coupable et misérable de sa faiblesse et obligea Hassan à partir, il suivit bientôt son père aux États-Unis. L'adulte Amir n'a jamais pu pardonner sa trahison de Hassan. Afin de faire l'expiation, Amir s'est de nouveau embarqué dans la ville natale de plus de deux décennies, espérant faire un effort durable pour le malheureux ami, mais a trouvé un mensonge terrifiant, un cauchemar d'enfance se répète, comment décide Amir? L'histoire est si cruelle et belle.L'auteur esquisse la nature et le salut de la nature humaine d'une manière chaude et délicate.",
           "state": "0",
           "coverImg": "http://imcczy.b0.upaiyun.com/2018-05-13-065638.jpg",
           "createTime": "2006-05-13",
@@ -183,21 +183,21 @@
     "message": "",
     "data": [{
       "commentId": 123456,
-      "content": "清风皓月识我意",
-      "memberName": "知涯",
+      "content": "C'est un bon roman!",
+      "memberName": "Romain ",
       "createtime": "2018-05-06"
 
     },
       {
         "commentId": 123457,
-        "content": "清风是你",
-        "memberName": "知涯",
+        "content": "J'aime vraiment cet auteur!",
+        "memberName": "Lily ",
         "createtime": "2018-05-07"
       },
       {
         "commentId": 123458,
-        "content": "皓月也是你",
-        "memberName": "知涯",
+        "content": "Je ne l'aime pas.",
+        "memberName": "Tom ",
         "createtime": "2018-05-08"
       }]
   },
@@ -206,7 +206,7 @@
     "message": "",
     "data": [
       {
-      "username": "xigua",
+      "username": "Lily",
       "isAdmin": 1,
       "tel": 12345678,
       "address": "test",
@@ -217,7 +217,7 @@
       "borrowTimes": 2
     },
       {
-        "username": "xiezi",
+        "username": "Clare",
         "isAdmin": 0,
         "tel": 123456780,
         "address": "test",

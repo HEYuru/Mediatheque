@@ -2,12 +2,12 @@
   <div class="container">
     <el-row :gutter="20">
       <el-col :span="20">
-        <el-input placeholder="请输入名称或UUID查询" v-model="query">
+        <el-input placeholder="S'il vous plaît entrer le nom" v-model="query">
           <el-button v-on:click="searchBooks(query)" slot="append" icon="el-icon-search"></el-button>
         </el-input>
       </el-col>
       <el-col :span="4">
-        <el-button style="width: 100%;" type="primary" @click="dialogFormVisible = true">添加新书籍</el-button>
+        <el-button style="width: 100%;" type="primary" @click="dialogFormVisible = true">Ajouter Oeuvre</el-button>
       </el-col>
     </el-row>
     <el-table :data="products" stripe style="margin-top: 20px; width: 100%">
@@ -17,66 +17,66 @@
             <el-form-item label="id">
               <span>{{ props.row.id }}</span>
             </el-form-item>
-            <el-form-item label="书籍名">
+            <el-form-item label="nom de oeuvre:">
               <span>{{ props.row.title }}</span>
             </el-form-item>
-            <el-form-item label="ISBN 码">
+            <el-form-item label="le code de ISBN:">
               <span>{{ props.row.uuid }}</span>
             </el-form-item>
-            <el-form-item label="借阅次数">
+            <el-form-item label="Les temps empruntés:">
               <span>{{ props.row.borrowTimes }}</span>
             </el-form-item>
-            <el-form-item label="当前状态">
+            <el-form-item label="Status:">
               <span>{{ props.row.state }}</span>
             </el-form-item>
-            <el-form-item label="书籍价格">
+            <el-form-item label="Prix:">
               <span>￥{{ props.row.price }}</span>
             </el-form-item>
-            <el-form-item label="封面">
+            <el-form-item label="Couverture">
               <img class="product_img" :src="props.row.coverImg" :alt="props.row.title">
             </el-form-item>
-            <el-form-item label="上架时间">
+            <el-form-item label="Date:">
               <span>{{ props.row.createTime }}</span>
             </el-form-item>
           </el-form>
         </template>
       </el-table-column>
-      <el-table-column prop="title" label="书籍名">
+      <el-table-column prop="title" label="le nom de oeuvre">
       </el-table-column>
-      <el-table-column prop="uuid" label="ISBN码">
+      <el-table-column prop="uuid" label="ISBN">
       </el-table-column>
-      <el-table-column prop="state" label="书籍状态">
+      <el-table-column prop="state" label="Status">
       </el-table-column>
-      <el-table-column label="操作">
+      <el-table-column label="Opérations">
         <template slot-scope="scope">
-          <el-button size="small" type="text" :disabled="scope.row.state !== '正常'"
-                     @click="deleteBook(scope.row.id, scope.$index)">删除
+          <el-button size="small" type="text" :disabled="scope.row.state !== 'Available'"
+                     @click="deleteBook(scope.row.id, scope.$index)">Supprimer
           </el-button>
         </template>
       </el-table-column>
     </el-table>
-    <el-dialog title="新增" :visible.sync="dialogFormVisible">
+    <el-dialog title="Ajouter" :visible.sync="dialogFormVisible">
       <el-form :model="form">
-        <el-form-item label="名称" :label-width="formLabelWidth">
+        <el-form-item label="Nom" :label-width="formLabelWidth">
           <el-input v-model="form.title" auto-complete="off"></el-input>
         </el-form-item>
-        <el-form-item label="类型" :label-width="formLabelWidth">
-          <el-select v-model="form.type" clearable placeholder="请选择">
-            <el-option label="图书" value="1"></el-option>
-            <el-option label="电影" value="2"></el-option>
-            <el-option label="专辑" value="3"></el-option>
+        <el-form-item label="type" :label-width="formLabelWidth">
+          <el-select v-model="form.type" clearable placeholder="Selecter">
+            <el-option label="Livre" value="1"></el-option>
+            <el-option label="Film" value="2"></el-option>
+            <el-option label="Albm_Audio" value="3"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="UUID" :label-width="formLabelWidth">
           <el-input v-model="form.uuid" auto-complete="off"></el-input>
         </el-form-item>
-        <el-form-item label="描述" :label-width="formLabelWidth">
+        <el-form-item label="Information" :label-width="formLabelWidth">
           <el-input v-model="form.summary" auto-complete="off"></el-input>
         </el-form-item>
-        <el-form-item label="价格" :label-width="formLabelWidth">
+        <el-form-item label="Prix" :label-width="formLabelWidth">
           <el-input v-model="form.price" auto-complete="off"></el-input>
         </el-form-item>
-        <el-form-item label="图片" :label-width="formLabelWidth">
+        <el-form-item label="Picture" :label-width="formLabelWidth">
           <el-upload
             class="upload-demo"
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -87,10 +87,10 @@
             :limit="3"
             :on-exceed="handleExceed"
             :file-list="fileList">
-            <el-button size="small" type="primary">点击上传</el-button>
+            <el-button size="small" type="primary">Télécharger</el-button>
           </el-upload>
         </el-form-item>
-        <el-form-item label="产品" :label-width="formLabelWidth">
+        <el-form-item label="Produits" :label-width="formLabelWidth">
           <el-upload
             class="upload-demo"
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -101,13 +101,13 @@
             :limit="3"
             :on-exceed="handleExceed"
             :file-list="fileList2">
-            <el-button size="small" type="primary">点击上传</el-button>
+            <el-button size="small" type="primary">Télécharger</el-button>
           </el-upload>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addBook(form)">确 定</el-button>
+        <el-button @click="dialogFormVisible = false">Annuler</el-button>
+        <el-button type="primary" @click="addBook(form)">Valider</el-button>
       </div>
     </el-dialog>
     <!--<el-dialog title="收货地址" :visible.sync="dialogFormVisible">-->
@@ -154,13 +154,13 @@ export default {
       form: {
         type: '1',
         id: 4,
-        title: '边城',
+        title: 'Ville frontalière',
         uuid: '9787543067028',
         price: 35,
         borrowTimes: '0',
         returnTime: null,
         summary:
-            '小说以20世纪30年代川湘交界的边城小镇茶峒为背景，以兼具抒情诗和小品文的优美笔触，描绘了湘西边城淳朴的世道民风和天然的生活状态。全书共二十一个章节，每个章节都似一幅或浓或淡的水墨画，以古朴清新的语言，表现出一种“优美、健康、自然而又不悖乎人性的人生形式',
+            "Le roman est basé sur les tasses de thé de la frontière à la frontière du Sichuan et du Hunan dans les années 1930. Il combine la poésie lyrique avec les coups de pinceau gracieux pour décrire les coutumes simples et honnêtes et les conditions naturelles de la ville de Xiangxi. Le livre se compose de 21 chapitres, chacun ressemblant à une peinture à l'encre épaisse ou légère, dans un langage simple et frais, il exprime une forme belle, saine, naturelle et humaine.",
         state: '0',
         coverImg: 'http://imcczy.b0.upaiyun.com/2018-05-14-070209.jpg',
         createTime: '2013-09-01',
@@ -200,7 +200,7 @@ export default {
       )
     },
     beforeRemove (file, fileList) {
-      return this.$confirm(`确定移除 ${file.name}？`)
+      return this.$confirm(`supprimer ${file.name}？`)
     },
     /**
        * 搜索图书

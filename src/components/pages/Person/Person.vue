@@ -4,10 +4,10 @@
       <el-col :span="6">
         <el-menu default-active="2" class="el-menu-vertical-demo">
           <el-menu-item index="1">
-            <router-link :to="{ path: PERSON_HOME }">用户主页</router-link>
+            <router-link :to="{ path: PERSON_HOME }">Accueil Mon compte</router-link>
           </el-menu-item>
           <el-menu-item index="2">
-            <router-link :to="{ path: PERSON_RECORDS }">借阅记录</router-link>
+            <router-link :to="{ path: PERSON_RECORDS }">Emprunts</router-link>
           </el-menu-item>
         </el-menu>
       </el-col>

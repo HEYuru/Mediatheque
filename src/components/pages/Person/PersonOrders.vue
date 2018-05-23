@@ -1,9 +1,9 @@
 <template>
   <div>
     <el-table :data="_orders" stripe style="width: 100%">
-      <el-table-column prop="orderId" label="订单编号">
+      <el-table-column prop="orderId" label="N°commande">
       </el-table-column>
-      <el-table-column prop="bookIsbn" label="商品信息">
+      <el-table-column prop="bookIsbn" label="information d'oeuvre">
         <template slot-scope="scope">
           <div v-for="book in scope.row.booklist" :key="book.id">
             <p>
@@ -15,13 +15,13 @@
           </div>
         </template>
       </el-table-column>
-      <el-table-column prop="orderState" label="订单状态">
+      <el-table-column prop="orderState" label="Statut">
       </el-table-column>
-      <el-table-column prop="createTime" label="下单时间">
+      <el-table-column prop="createTime" label="Date">
       </el-table-column>
-      <el-table-column label="操作">
+      <el-table-column label="operate">
         <template slot-scope="scope">
-          <el-button type="danger" @click="cancelOrder(scope.row)">取消订单</el-button>
+          <el-button type="danger" @click="cancelOrder(scope.row)">Annuler la commande</el-button>
         </template>
       </el-table-column>
     </el-table>

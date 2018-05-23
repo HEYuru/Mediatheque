@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <el-input placeholder="请输入会员姓名或学号查询" icon="search" v-model="query" :on-icon-click="search.bind(this, query)">
+    <el-input placeholder="Veuillez entrer le numéro d'étudiant" icon="search" v-model="query" :on-icon-click="search.bind(this, query)">
     </el-input>
     <el-row :gutter="10">
       <el-col :span="12" v-for="record in recordRes" :key="record.recordId">
@@ -42,7 +42,7 @@ export default {
     search (param) {
       if (!param || !param.trim()) {
         this.$message({
-          message: '请输入查询条件'
+          message: 'Entrez les conditions de requête'
         })
       } else {
         this.$store.dispatch(SEARCH_RECORDS, {

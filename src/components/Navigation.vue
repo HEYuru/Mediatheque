@@ -7,20 +7,20 @@
       <el-submenu index="2">
         <template slot="title">{{user.username}}</template>
         <el-menu-item index="2-1">
-          <router-link :to="{ path: PERSON_HOME }">用户主页</router-link>
+          <router-link :to="{ path: PERSON_HOME }">Accieul</router-link>
         </el-menu-item>
         <el-menu-item index="2-2">
-          <router-link :to="{ path: PERSON_RECORDS }">借阅记录</router-link>
+          <router-link :to="{ path: PERSON_RECORDS }">Emprunts</router-link>
         </el-menu-item>
       </el-submenu>
     </template>
     <template v-else>
       <el-menu-item index="2">
-        <router-link :to="{ path: USER_LOGIN }">登录</router-link>
+        <router-link :to="{ path: USER_LOGIN }">Login</router-link>
       </el-menu-item>
     </template>
     <el-menu-item index="3" v-if="login">
-      <a @click="logout()">注销</a>
+      <a @click="logout()">Se déconnecter</a>
     </el-menu-item>
   </el-menu>
 </template>

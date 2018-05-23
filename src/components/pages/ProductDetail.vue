@@ -9,22 +9,22 @@
             <p>UUID：
               <span>{{book.uuid}}</span>
             </p>
-            <p>被借阅次数：
+            <p>Les fois empruntés：
               <span>{{book.borrowTimes}}</span>
             </p>
-            <p>原价：
+            <p>prix coûtant：
               <del>{{book.price}}</del>
-              现价：
+              prix courant：
               <span>{{book.price}}</span>
             </p>
             <template v-if="book.returnTime !== 0">
-              <el-button type="success" v-on:click="addProductToCart(book)">加入购物车</el-button>
+              <el-button type="success" v-on:click="addProductToCart(book)">Ajouter au panier</el-button>
             </template>
             <template v-else>
-              <p>该书正在被借阅</p>
+              <p>En cours d'emprunt</p>
             </template>
           </div>
-          <h4>书籍简介</h4>
+          <h4>information</h4>
           <p>{{book.summary}}</p>
         </el-card>
       </el-col>
@@ -34,11 +34,11 @@
             <Cart :item="item"/>
           </el-col>
         </el-row>
-        <el-button style="width: 100%;" type="success" @click="order">￥{{sumPrice}} - 结算</el-button>
+        <el-button style="width: 100%;" type="success" @click="order">￥{{sumPrice}} - Total à régler</el-button>
       </el-col>
     </el-row>
     <el-row style="padding: 20px;">
-      <h4>书籍评论</h4></el-row>
+      <h4>Commentaire</h4></el-row>
     <el-row>
       <div class="content" v-for="comment in commentlist" :key="comment.commentId">
         <el-card>
@@ -47,10 +47,10 @@
         </el-card>
       </div>
     </el-row>
-    <el-input style="margin-top: 20px;padding: 20px;" type="textarea" :autosize="{ minrows: 2, maxrows: 4}" placeholder="请输入评论"
+    <el-input style="margin-top: 20px;padding: 20px;" type="textarea" :autosize="{ minrows: 2, maxrows: 4}" placeholder="Entrer un commentaire"
               v-model="comment">
     </el-input>
-    <el-button style="margin-top: 20px;" type="success" @click="addComment(comment)">提交评论</el-button>
+    <el-button style="margin-top: 20px;" type="success" @click="addComment(comment)">Envoyer un commentaire</el-button>
   </div>
 </template>
 
@@ -126,7 +126,7 @@
       //   addComment(post)
       //     .then(res => {
       //       this.$message({
-      //         message: "评论成功"
+      //         message: "success"
       //       });
       //       // 根据id查询到评论
       //       searchCommentById(res.commentId)
@@ -152,7 +152,7 @@
           id: this.book.id,
           content: content,
           commentId: 123459,
-          memberName: "xigua",
+          memberName: "Lily ",
           createtime: new Date().toISOString().split('T')[0]
         }
         this.commentlist.push(post)
@@ -161,7 +161,7 @@
         // 首先判断用户是否登录
         if (!localStorage.getItem('user')) {
           // this.$message({
-          // message: '跳转到登录页'
+          // message: 'return Accueil'
           // })
           router.push('/login')
         } else {

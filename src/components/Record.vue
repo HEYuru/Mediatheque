@@ -3,17 +3,17 @@
     <img :src="_record.bookImg" class="record__img">
     <div style="padding: 14px;" class="record__detail">
       <p class="record__book">
-        <span>书籍名：{{_record.bookTitle}}</span>
+        <span>le nom d'oeuvre：{{_record.bookTitle}}</span>
       </p>
       <p class="record__member">
-        <span>借阅人：{{_record.memberName}}</span> -
+        <span>Emprunteur：{{_record.memberName}}</span> -
         <span>{{_record.memberRank}}</span>
       </p>
       <p>
-        <time class="time">借阅时间：{{_record.borrowTime}}</time>
-        <time v-if="record.isExceed">(已超期)</time>
+        <time class="time">Date：{{_record.borrowTime}}</time>
+        <time v-if="record.isExceed">(Expiration)</time>
       </p>
-      <el-button type="primary" @click="choose(_record)">归还</el-button>
+      <el-button type="primary" @click="choose(_record)">Return</el-button>
     </div>
   </el-card>
 </template>
@@ -39,7 +39,7 @@ export default {
       const _createTime = this.record.memberCreateTime
       return Object.assign({}, this.record, {
         memberRank: rank(_rank),
-        isExceed: returnTime(_returnTime, _createTime, _rank) === '超期'
+        isExceed: returnTime(_returnTime, _createTime, _rank) === 'Expiration'
       })
     }
   }

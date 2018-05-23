@@ -2,78 +2,78 @@
   <div class="container">
     <el-row :gutter="20">
       <el-col :span="20">
-        <el-input placeholder="请输入名称或学号" v-model="query">
+        <el-input placeholder="Veuillez entrer le numéro d'étudiant" v-model="query">
           <el-button v-on:click="searchBooks(query)" slot="append" icon="el-icon-search"></el-button>
         </el-input>
       </el-col>
       <el-col :span="4">
-        <el-button style="width: 100%;" type="primary" @click="dialogFormVisible = true">添加新会员</el-button>
+        <el-button style="width: 100%;" type="primary" @click="dialogFormVisible = true">Ajouter member</el-button>
       </el-col>
     </el-row>
     <el-table :data="members" stripe style="margin-top: 20px; width: 100%">
       <el-table-column type="expand">
         <template slot-scope="props">
           <el-form label-position="left" inline class="demo-table-expand">
-            <el-form-item label="会员名">
+            <el-form-item label="nom de member">
               <span>{{ props.row.username }}</span>
             </el-form-item>
-            <el-form-item label="学号">
+            <el-form-item label="le numéro d'étudiant">
               <span>{{ props.row.num }}</span>
             </el-form-item>
-            <el-form-item label="联系方式">
+            <el-form-item label="le numéro de téléphone">
               <span>{{ props.row.tel }}</span>
             </el-form-item>
-            <el-form-item label="地址">
+            <el-form-item label="address">
               <span>{{ props.row.address }}</span>
             </el-form-item>
-            <el-form-item label="已借阅量">
+            <el-form-item label="Déjà emprunté">
               <span>{{ props.row.borrowNum }}</span>
             </el-form-item>
-            <el-form-item label="累计借阅量">
+            <el-form-item label="Quantité de prêt accumulée">
               <span>{{ props.row.borrowTimes }}</span>
             </el-form-item>
-            <el-form-item label="会员类型">
+            <el-form-item label="type de member">
               <span>{{ props.row.rank }}</span>
             </el-form-item>
-            <el-form-item label="创建时间">
+            <el-form-item label="date de création">
               <span>{{ props.row.createTime }}</span>
             </el-form-item>
           </el-form>
         </template>
       </el-table-column>
-      <el-table-column prop="username" label="姓名">
+      <el-table-column prop="username" label="nom">
       </el-table-column>
-      <el-table-column prop="num" label="学号">
+      <el-table-column prop="num" label="Numéro d'étudiant">
       </el-table-column>
-      <el-table-column prop="tel" label="联系方式">
+      <el-table-column prop="tel" label="Numéro de téléphone">
       </el-table-column>
-      <el-table-column prop="rank" label="会员类型">
+      <el-table-column prop="rank" label="type de membre">
       </el-table-column>
-      <el-table-column prop="createTime" label="创建时间">
+      <el-table-column prop="createTime" label="date de création">
       </el-table-column>
-      <el-table-column label="操作">
+      <el-table-column label="Opérations">
         <template slot-scope="scope">
           <el-button
-            size="small" type="text" @click="showEditMemberModal(scope.row, scope.$index)">编辑
+            size="small" type="text" @click="showEditMemberModal(scope.row, scope.$index)">modifier
           </el-button>
           <el-button size="small" type="text" :disabled="scope.row.borrowNum!==  0"
-                     @click="deleteMember(scope.row.memberId, scope.$index)">删除
+                     @click="deleteMember(scope.row.memberId, scope.$index)">Supprimer
           </el-button>
         </template>
       </el-table-column>
     </el-table>
-    <el-dialog title="新增会员" :visible.sync="dialogFormVisible">
+    <el-dialog title="Ajouter un membre" :visible.sync="dialogFormVisible">
       <MemberForm ref="member" :member="member"/>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addMember(member)">确 定</el-button>
+        <el-button @click="dialogFormVisible = false">Annuler</el-button>
+        <el-button type="primary" @click="addMember(member)">Valder</el-button>
       </div>
     </el-dialog>
-    <el-dialog title="编辑会员信息" :visible.sync="editMemberModalVisible">
+    <el-dialog title="Modifier les informations sur le membre" :visible.sync="editMemberModalVisible">
       <MemberForm ref="currentMember" :member="copyMember"/>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="editMemberModalVisible = false">取 消</el-button>
-        <el-button type="primary" @click="editMember(copyMember)">确 定</el-button>
+        <el-button @click="editMemberModalVisible = false">Annuler</el-button>
+        <el-button type="primary" @click="editMember(copyMember)">Valder</el-button>
       </div>
     </el-dialog>
   </div>

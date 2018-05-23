@@ -1,13 +1,13 @@
 <template>
   <div>
-    <el-input placeholder="请输入书籍名称筛选" icon="search" v-model="query">
+    <el-input placeholder="Entrez le nom d'Oeuvre" icon="search" v-model="query">
     </el-input>
     <el-table :data="records" stripe style="width: 100%">
-      <el-table-column prop="title" label="书籍名称">
+      <el-table-column prop="title" label="nom d'oeuvre">
       </el-table-column>
-      <el-table-column prop="borrowTime" label="借阅时间">
+      <el-table-column prop="borrowTime" label="date d'emprunt">
       </el-table-column>
-      <el-table-column prop="returnTime" label="归还时间">
+      <el-table-column prop="returnTime" label="date de retour">
       </el-table-column>
     </el-table>
   </div>

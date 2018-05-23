@@ -2,7 +2,7 @@
   <div class="container">
     <el-row :gutter="20">
       <el-col :span="24">
-        <el-input placeholder="请输入名称或学号" v-model="query">
+        <el-input placeholder="Veuillez entrer le numéro d'étudiant" v-model="query">
           <el-button v-on:click="searchRecords(query)" slot="append" icon="el-icon-search"></el-button>
         </el-input>
       </el-col>
@@ -13,46 +13,46 @@
       <el-table-column type="expand">
         <template slot-scope="props">
           <el-form label-position="left" inline class="demo-table-expand">
-            <el-form-item label="会员名">
+            <el-form-item label="Nom de membre">
               <span>{{ props.row.username }}</span>
             </el-form-item>
-            <el-form-item label="学号">
+            <el-form-item label="Numéro d'étudiant">
               <span>{{ props.row.num }}</span>
             </el-form-item>
-            <el-form-item label="联系方式">
+            <el-form-item label="Numéro de telephone">
               <span>{{ props.row.tel }}</span>
             </el-form-item>
-            <el-form-item label="地址">
+            <el-form-item label="Addres">
               <span>{{ props.row.address }}</span>
             </el-form-item>
-            <el-form-item label="会员类型">
+            <el-form-item label="Tpye de membre">
               <span>{{ props.row.rank }}</span>
             </el-form-item>
-            <el-form-item label="书籍名">
+            <el-form-item label="Nom de oeuvre">
               <span>{{ props.row.title }}</span>
             </el-form-item>
             <el-form-item label="UUID">
               <span>{{ props.row.uuid }}</span>
             </el-form-item>
-            <el-form-item label="归还时间">
+            <el-form-item label="Date">
               <span>{{ props.row.returnTime }}</span>
             </el-form-item>
           </el-form>
         </template>
       </el-table-column>
-      <el-table-column prop="num" label="会员学号">
+      <el-table-column prop="num" label="Numéro d'étudiant">
       </el-table-column>
-      <el-table-column prop="username" label="会员名称">
+      <el-table-column prop="username" label="Nom de membre">
       </el-table-column>
-      <el-table-column prop="title" label="书籍名称">
+      <el-table-column prop="title" label="Nom de oeuvre">
       </el-table-column>
-      <el-table-column prop="borrowTime" label="借阅时间">
+      <el-table-column prop="borrowTime" label="Date">
       </el-table-column>
-      <el-table-column prop="returnTime" label="状态" width="100"
-                       :filters="[{ text: '已还', value: '已还' }, { text: '未还', value: '未还' }, { text: '超期', value: '超期'}]"
+      <el-table-column prop="returnTime" label="Status" width="100"
+                       :filters="[{ text: 'Retourné', value: 'Retourné' }, { text: 'Pas Retourner', value: 'Pas Retourner' }, { text: 'Expiration', value: 'Expiration'}]"
                        :filter-method="filterReturn">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.tag === '超期' ? 'danger' : 'success'" close-transition>{{scope.row.tag}}</el-tag>
+          <el-tag :type="scope.row.tag === 'Dépasser le délai' ? 'danger' : 'success'" close-transition>{{scope.row.tag}}</el-tag>
         </template>
       </el-table-column>
     </el-table>

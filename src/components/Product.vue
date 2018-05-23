@@ -4,13 +4,13 @@
     <div style="float: left; padding: 10px;">
       <router-link class="product_link" :to="{ path: '/product/' + item.uuid }">{{item.title}}</router-link>
       <p class="product_price">
-        <span>价格：
+        <span>prix：
           ￥{{item.price}}
         </span>
       </p>
       <div class="bottom clearfix">
         <time class="time">{{item._createTime}}</time>
-        <el-button @click="addProductToCart(item)">加入购物车</el-button>
+        <el-button @click="addProductToCart(item)">Ajouter au panier</el-button>
       </div>
     </div>
   </el-card>

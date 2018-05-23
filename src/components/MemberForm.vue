@@ -1,27 +1,27 @@
 <template>
   <div class="container">
     <el-form ref="member" :model="member" :rules="rules" label-width="80px">
-      <el-form-item label="会员名" prop="username">
-        <el-input placeholder="请输入会员名" v-model="member.username">
+      <el-form-item label="Nom du membre" prop="username">
+        <el-input placeholder="Veuillez entrer le nom du membre" v-model="member.username">
         </el-input>
       </el-form-item>
-      <el-form-item label="学号" prop="num">
-        <el-input placeholder="请输入学号" v-model="member.num">
+      <el-form-item label="Numéro d'étudiant" prop="num">
+        <el-input placeholder="Veuillez entrer numéro d'étudiant" v-model="member.num">
         </el-input>
       </el-form-item>
-      <el-form-item label="联系方式" prop="tel">
-        <el-input placeholder="请输入联系方式" v-model="member.tel">
+      <el-form-item label="Numéro de téléphone" prop="tel">
+        <el-input placeholder="Veuillez entrer Numéro de téléphone" v-model="member.tel">
         </el-input>
       </el-form-item>
-      <el-form-item label="地址" prop="address">
-        <el-input placeholder="请输入地址" v-model="member.address">
+      <el-form-item label="address" prop="address">
+        <el-input placeholder="Veuillez entrer address" v-model="member.address">
         </el-input>
       </el-form-item>
-      <el-form-item label="会员类型">
+      <el-form-item label="type de member">
         <el-radio-group v-model="member.rank">
-          <el-radio :label="0">周卡</el-radio>
-          <el-radio :label="1">月卡</el-radio>
-          <el-radio :label="2">期卡</el-radio>
+          <el-radio :label="0">Carte de semaine</el-radio>
+          <el-radio :label="1">Carte de mois</el-radio>
+          <el-radio :label="2">Carte de semestre</el-radio>
         </el-radio-group>
       </el-form-item>
     </el-form>
@@ -42,10 +42,10 @@ export default {
     // 自定义学号校验规则，学号必须是唯一值
     const checkNum = (rule, value, callback) => {
       if (!value) {
-        return callback(new Error('学号不能为空'))
+        return callback(new Error('Numéro de étudiant ne peut pas être vide'))
       }
       if (value.length !== 10) {
-        return callback(new Error('学号必须为 10 位'))
+        return callback(new Error('le bon numéro étudiant'))
       }
       // 如果是更新会员信息，当学号一致时不做处理
       if (this.update && this.member.num === value) {
@@ -58,7 +58,7 @@ export default {
         },
         cb: res => {
           if (res.length !== 0) {
-            callback(new Error('该会员已存在'))
+            callback(new Error('Le membre existe'))
           } else {
             callback()
           }
@@ -70,12 +70,12 @@ export default {
         username: [
           {
             required: true,
-            message: '请输入活动名称',
+            message: 'Veuillez entrer le nom de événement',
             trigger: 'blur'
           },
           {
             max: 5,
-            message: '长度在不能超过 5 个字符',
+            message: 'Pas plus de cinq caractères',
             trigger: 'blur'
           }
         ],
@@ -88,26 +88,26 @@ export default {
         tel: [
           {
             required: true,
-            message: '请输入联系方式',
+            message: 'Veuillez entrer le numéro de téléphone',
             trigger: 'blur'
           },
           {
             max: 11,
-            message: '长度不能超过 11 个字符',
+            message: 'Veuillez entrer le bon numéro',
             trigger: 'blur'
           }
         ],
         address: [
           {
             required: true,
-            message: '请输入地址',
+            message: 'Veuillez entrer adresse',
             trigger: 'blur'
           }
         ],
         rank: [
           {
             required: true,
-            message: '请选择会员类型',
+            message: 'Sélectionnez le type de membre',
             trigger: 'blur'
           }
         ]

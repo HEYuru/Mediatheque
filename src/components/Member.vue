@@ -6,10 +6,10 @@
       <div class="bottom clearfix">
         <time class="time">{{member.memberCreateTime}}</time>
       </div>
-      <p v-if="member.borrowNum !== '0'">已借图书({{member.borrowNum}})</p>
+      <p v-if="member.borrowNum !== '0'">Oeuvre empruntés({{member.borrowNum}})</p>
       <div v-else>
-        <p v-if="outdate">会员已超期</p>
-        <el-button v-else class="button" type="primary" @click="choose(member)">选择</el-button>
+        <p v-if="outdate">Membre expiré</p>
+        <el-button v-else class="button" type="primary" @click="choose(member)">sélect</el-button>
       </div>
     </div>
   </el-card>

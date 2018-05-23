@@ -2,9 +2,9 @@
   <el-card :body-style="{ padding: '0px', display: 'flex', justifyContent: 'start' }">
     <img :src="book.image" class="douban__img">
     <div style="padding: 14px;" class="douban__detail">
-      <p class="douban__title">书籍名：{{book.title}}</p>
+      <p class="douban__title">nom de livre：{{book.title}}</p>
       <p>
-        <time class="douban__time">出版时间：{{book.pubdate}}</time>
+        <time class="douban__time">Date de publication：{{book.pubdate}}</time>
       </p>
       <el-button class="douban__btn" type="primary" @click="choose(book)">添加</el-button>
     </div>

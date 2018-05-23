@@ -30,9 +30,9 @@ export function convert (data) {
  */
 export function rank (rank) {
   const rankTable = {
-    0: '周卡',
-    1: '月卡',
-    2: '期卡'
+    0: 'Carte de semaine',
+    1: 'Carte de mois',
+    2: 'Carte de Semestre'
   }
   return rankTable[rank]
 }
@@ -42,9 +42,9 @@ export function rank (rank) {
  */
 export function bookState (state) {
   const bookStateTable = {
-    0: '正常',
-    1: '正在借阅',
-    2: '已出售'
+    0: 'Available',
+    1: 'Emprunte',
+    2: 'Vendu'
   }
   return bookStateTable[state]
 }
@@ -54,9 +54,9 @@ export function bookState (state) {
  */
 export function orderState (state) {
   const orderStateTable = {
-    0: '未确认',
-    1: '订单已完成',
-    2: '订单已取消'
+    0: 'Non confirmé',
+    1: 'Terminé',
+    2: 'Annulée'
   }
 
   return orderStateTable[state]
@@ -163,7 +163,7 @@ export function resetForm (component, form) {
 export function returnTime (returnTime, borrowTime, rank) {
   if (returnTime) {
     // 如果 returnTime 不是 null 表示已还
-    return '已还'
+    return 'Retourné'
   }
   // 借阅时间
   const dateTwo = borrowTime
@@ -179,20 +179,20 @@ export function returnTime (returnTime, borrowTime, rank) {
   if (rank === '0') {
     // 如果是周卡会员而且超期了，就显示超期
     if (cha > 7) {
-      return '超期'
+      return 'Expiration'
     } else {
-      return '未还'
+      return 'Pas retourner '
     }
   } else if (rank === '1') {
     // 如果是月卡会员而且超期了，就显示超期
     if (cha > 30) {
-      return '超期'
+      return 'Expiration'
     } else {
-      return '未还'
+      return 'Pas retourner'
     }
   } else {
     // 这里的都是期卡
-    return '未还'
+    return 'Pas retourner'
   }
 }
 export function clone (obj) {

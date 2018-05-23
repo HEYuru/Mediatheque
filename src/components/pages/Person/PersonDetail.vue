@@ -2,31 +2,31 @@
   <div>
     <el-card>
       <h3>{{user.username}}</h3>
-      <p>会员类型：
+      <p>type：
         <span>{{user.rank}}</span>
       </p>
-      <p>学号：
+      <p>nombre：
         <span>{{user.num}}</span>
       </p>
-      <p>联系方式：
+      <p>Numéro de mobile：
         <span>{{user.tel}}</span>
       </p>
-      <p>地址：
+      <p>Adresse：
         <span>{{user.address}}</span>
       </p>
-      <p>登记日期：
+      <p>Date d'inscription：
         <span>{{user.createTime}}</span>
       </p>
     </el-card>
     <div class="row">
-      <h4>正在借阅的书籍</h4>
+      <h4>Emprunter en cours</h4>
       <template v-if="recordRes.length === 0">
-        <p>没有借阅</p>
+        <p>pas Emprunter</p>
       </template>
       <template v-else>
         <el-card v-for="product in recordRes" :key="product.recordId">
           <h3>{{product.title}}</h3>
-          <p>借阅时间：
+          <p>date d'emprunter：
             <span>{{product.borrowTime}}</span>
           </p>
         </el-card>

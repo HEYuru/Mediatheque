@@ -7,7 +7,7 @@
 import Axios from 'axios'
 
 const FETCH_FAIL = '请求失败，请刷新重试'
-const baseUrl = 'http://192.168.33.10:3000'
+const baseUrl = 'http://localhost:3000'
 /**
  * 请求失败处理
  */

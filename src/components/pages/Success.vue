@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <p>购买成功</p>
-    <router-link :to="{ path: '/index' }">返回首页</router-link>
-    <router-link :to="{ path: '/person/orders' }">查看订单</router-link>
+    <p>Success</p>
+    <router-link :to="{ path: '/index' }">return accueil</router-link>
+    <router-link :to="{ path: '/person/orders' }">commandes</router-link>
   </div>
 </template>
 

@@ -89,7 +89,7 @@ const actions = {
     searchByDouban(params)
       .then(res => {
         if (res.books.length === 0) {
-          alert('没有结果')
+          alert('Aucun résultat')
           return
         }
         commit('setDouban', res.books)

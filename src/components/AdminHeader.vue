@@ -12,14 +12,14 @@
           <i class="el-icon-caret-bottom el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item><div @click="logout">注销</div></el-dropdown-item>
+          <el-dropdown-item><div @click="logout">Se déconnecter</div></el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
     <div v-else>
       <el-dropdown>
         <span class="el-dropdown-link">
-          <router-link :to="{ path: USER_LOGIN }">登录</router-link>
+          <router-link :to="{ path: USER_LOGIN }">Login</router-link>
         </span>
       </el-dropdown>
     </div>

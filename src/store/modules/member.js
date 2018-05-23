@@ -75,14 +75,14 @@ const actions = {
       commit('delete_member', index)
       commit('add_member', params.data)
     }
-    alert('更新成功')
+    alert('Modifié avec succès')
     if (params.cb) {
       params.cb()
     }
   },
   [DELETE_MEMBER] ({ commit }, id, index) {
     deleteMember(id).then(res => {
-      Message.success('移除成功')
+      Message.success('Supprimé avec succès')
       commit('delete_member', index)
     })
   }
